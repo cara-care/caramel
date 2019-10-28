@@ -1,0 +1,35 @@
+{
+  "name": "caramel",
+  "title": "Caramel",
+  "version": "0.0.1",
+  "description": "Cross-platform UI component library for React Native.",
+  "main": "./src/index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cara-care/caramel.git",
+    "baseUrl": "https://github.com/cara-care/caramel"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Cara.Care",
+    "email": "hello@cara.care"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'"
+  },
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^0.0.5",
+    "eslint": "^6.6.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "react-native-slider": "^0.11.0"
+  }
+}
