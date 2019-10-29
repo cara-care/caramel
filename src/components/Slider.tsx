@@ -5,16 +5,16 @@ import {Text} from '../';
 import {default as RNSlider} from 'react-native-slider';
 
 interface IProps {
-  thumbStyle: StyleProp<any>;
+  thumbStyle?: StyleProp<any>;
   thumbTextStyle?: StyleProp<any>;
-  trackStyle: StyleProp<any>;
+  trackStyle?: StyleProp<any>;
   tooltipStyle?: StyleProp<any>;
   leftTextStyle?: StyleProp<any>;
   rightTextStyle?: StyleProp<any>;
   minimum: number;
   maximum: number;
   onValueChange: (value: number) => void;
-  thumbWidth: number;
+  thumbWidth?: number;
   existingValue?: number;
   leftText?: string;
   rightText?: string;
@@ -37,6 +37,7 @@ interface IState {
 export default class Slider extends React.PureComponent<IProps, IState> {
   static defaultProps = {
     step: 1,
+    thumbWidth: 50,
   };
 
   state = {
