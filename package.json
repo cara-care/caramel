@@ -18,7 +18,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'"
+    "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "build": " rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps"
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
