@@ -18,7 +18,7 @@ interface IProps {
   existingValue?: number;
   leftText?: string;
   rightText?: string;
-  showTooltipOnSlide: boolean;
+  showTooltipOnSlide?: boolean;
   step?: number;
 }
 
@@ -38,6 +38,7 @@ export default class Slider extends React.PureComponent<IProps, IState> {
   static defaultProps = {
     step: 1,
     thumbWidth: 50,
+    showTooltipOnSlide: true,
   };
 
   state = {
