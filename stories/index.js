@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Button, View, Platform} from 'react-native';
 
 import {storiesOf} from '@storybook/react-native';
 
 /** eslint-disable-next-line import/extensions */
 import CenterView from './CenterView';
-import {Slider, Text} from '../src/';
+import {Slider, Text, BottomActionSheet} from '../src/';
 import theme from '../src/utils/Theme';
 
 storiesOf('Slider', module)
@@ -47,6 +47,32 @@ storiesOf('Texts', module)
     <Text type="header4" style={{color: theme.colors.raspberryRed}}>
       Hello World
     </Text>
+  ));
+
+storiesOf('BottomActionSheet', module)
+  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .add('BottomActionSheet', () => (
+    <View>
+      <Button
+        onPress={() => {
+          this.bottomActionSheet.openSheet();
+        }}
+        title="Open"
+      />
+      <BottomActionSheet
+        ref={ref => {
+          this.bottomActionSheet = ref;
+        }}
+        options={['OK', 'Cancel']}
+        cancelButtonIndex={1}
+        onPressWithIndex={index => {
+          if (Platform.OS === 'android' && index === 0) {
+            this.bottomActionSheet.closeSheet();
+          }
+          console.log(index);
+        }}
+      />
+    </View>
   ));
 
 const styles = StyleSheet.create({
