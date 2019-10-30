@@ -35,4 +35,3 @@ declare class BottomActionSheet extends Component<IProps, any> {
     render(): JSX.Element;
 }
 export default BottomActionSheet;
-//# sourceMappingURL=BottomActionSheet.d.ts.map

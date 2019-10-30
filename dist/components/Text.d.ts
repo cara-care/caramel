@@ -14,4 +14,3 @@ export default class Text extends React.Component<Props> {
     render(): JSX.Element;
 }
 export {};
-//# sourceMappingURL=Text.d.ts.map

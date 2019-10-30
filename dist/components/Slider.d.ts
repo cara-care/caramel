@@ -38,4 +38,3 @@ export default class Slider extends PureComponent<IProps, IState> {
     render(): JSX.Element;
 }
 export {};
-//# sourceMappingURL=Slider.d.ts.map

@@ -31,4 +31,3 @@ declare class BottomSheetAndroid extends Component<IProps, any> {
     render(): JSX.Element;
 }
 export default BottomSheetAndroid;
-//# sourceMappingURL=BottomSheetAndroid.d.ts.map

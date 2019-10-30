@@ -15,4 +15,3 @@ declare class Container extends Component<Props> {
     render(): JSX.Element;
 }
 export default Container;
-//# sourceMappingURL=Container.d.ts.map

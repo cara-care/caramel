@@ -3,8 +3,8 @@
   "title": "Caramel",
   "version": "0.0.1",
   "description": "Cross-platform UI component library for React Native.",
-  "main": "./dist/build/lib/index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cara-care/caramel.git",
@@ -18,28 +18,31 @@
     "email": "hello@cara.care"
   },
   "scripts": {
-    "compile": "npm install && tsc",
-    "build:types": "tsc -d --declarationDir dist/build/lib --declarationMap --emitDeclarationOnly --allowJs false",
-    "dist": "rm -rf dist/* && npm run compile && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
-    "build": "npm run compile && npm run build:types",
+    "prepublish": "tsc -d",
     "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
     "eslint": "eslint \"src/**/*.tsx\""
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
+  "dependencies": {
+    "react-native-slider": "^0.11.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-native": ">=0.60.0 <1.0.x",
+    "react-navigation": ">= 4.0.0"
+  },
   "devDependencies": {
     "@react-native-community/eslint-config": "^0.0.5",
-    "babel-cli": "^6.18.0",
-    "babel-eslint": "^7.2.3",
-    "babel-jest": "^24.8.0",
-    "babel-preset-react-native": "4.0.0",
-    "eslint": "^6.6.0",
+    "@types/react": "^16.9.11",
+    "@types/react-native": "^0.60.22",
+    "@types/react-navigation": "^3.0.8",
+    "eslint": "5.0.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.18.2"
-  },
-  "dependencies": {
-    "react-native-slider": "^0.11.0",
-    "react-navigation": "^4.0.10"
+    "prettier": "^1.18.2",
+    "react-native-gesture-handler": "^1.5.0",
+    "react-navigation": "^4.0.10",
+    "typescript": "^3.6.4"
   }
 }
