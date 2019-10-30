@@ -18,17 +18,21 @@
     "email": "hello@cara.care"
   },
   "scripts": {
-    "compile": "npm install && tsc",
     "prepublish": "tsc -d",
-    "build:types": "tsc -d --declarationDir dist/build/lib --declarationMap --emitDeclarationOnly --allowJs false",
-    "dist": "rm -rf dist/* && npm run compile && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
-    "build": "npm run compile && npm run build:types",
     "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
     "eslint": "eslint \"src/**/*.tsx\""
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
+  "dependencies": {
+    "react-native-slider": "^0.11.0",
+    "react-navigation": "^4.0.10"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6", 
+    "react-native": ">=0.60.0 <1.0.x"
+  },
   "devDependencies": {
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/react": "^16.9.11",
@@ -37,9 +41,5 @@
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"
-  },
-  "dependencies": {
-    "react-native-slider": "^0.11.0",
-    "react-navigation": "^4.0.10"
   }
 }
