@@ -3,7 +3,7 @@
   "title": "Caramel",
   "version": "0.0.1",
   "description": "Cross-platform UI component library for React Native.",
-  "main": "./src/index.tsx",
+  "main": "./dist/build/lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cara-care/caramel.git",
@@ -19,7 +19,8 @@
   "scripts": {
     "lint": "eslint .",
     "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "build": " rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps"
+    "build": " rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
+    "eslint": "eslint \"src/**/*.tsx\""
   },
   "license": "MIT",
   "licenseFilename": "LICENSE",
