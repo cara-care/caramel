@@ -1,1 +1,0 @@
-{"version":3,"sources":["../addons.js"],"names":[],"mappings":"AAAA,OAAO,mCAAP;AACA,OAAO,iCAAP","file":"addons.js","sourcesContent":["import '@storybook/addon-actions/register';\nimport '@storybook/addon-links/register';\n"]}
