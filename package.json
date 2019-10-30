@@ -17,8 +17,8 @@
     "email": "hello@cara.care"
   },
   "scripts": {
-    "compile": "yarn && tsc" ,
-    "build": "rm -rf dist/* && yarn compile && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
+    "compile": "npm install && tsc",
+    "build": "rm -rf dist/* && npm run compile && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
     "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
     "eslint": "eslint \"src/**/*.tsx\""
   },
