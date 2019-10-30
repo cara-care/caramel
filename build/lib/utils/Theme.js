@@ -1,12 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var mediumGrey = '#AEAEAE';
-var kaleGreen = '#1E8080';
-var aquaMarine = '#50E3C2';
-var sunFlowerYellow = '#FFD13E';
-var carrotRed = '#FA5544';
-var raspberryRed = '#DD206A';
-var theme = {
+const mediumGrey = '#AEAEAE';
+const kaleGreen = '#1E8080';
+const aquaMarine = '#50E3C2';
+const sunFlowerYellow = '#FFD13E';
+const carrotRed = '#FA5544';
+const raspberryRed = '#DD206A';
+const theme = {
     colors: {
         primary: '#00B4A7',
         primaryDisabled: 'rgba(0,180,167,0.1)',
@@ -20,16 +18,16 @@ var theme = {
         malibu: '#80a6fd',
         ultraLightGrey: 'rgba(247, 247,  247, 1)',
         lightGrey: '#dddddd',
-        mediumGrey: mediumGrey,
+        mediumGrey,
         darkGrey: '#595959',
         grey: '#898989',
         greyBg: '#F4F7F8',
         skeleton: '#e3e3e3',
-        kaleGreen: kaleGreen,
-        aquaMarine: aquaMarine,
-        sunFlowerYellow: sunFlowerYellow,
-        carrotRed: carrotRed,
-        raspberryRed: raspberryRed,
+        kaleGreen,
+        aquaMarine,
+        sunFlowerYellow,
+        carrotRed,
+        raspberryRed,
         trafficLightColorScale: [
             kaleGreen,
             aquaMarine,
@@ -85,5 +83,5 @@ var theme = {
         xl: 64,
     },
 };
-exports.default = theme;
+export default theme;
 //# sourceMappingURL=Theme.js.map
