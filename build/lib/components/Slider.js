@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, StyleSheet } from 'react-native';
 import theme from '../utils/Theme';
 import { Text } from '../';
-const RNSlider = require('react-native-slider');
+import RNSlider from 'react-native-slider';
 var ShowHide;
 (function (ShowHide) {
     ShowHide["SHOW"] = "flex";

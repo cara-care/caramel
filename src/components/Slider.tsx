@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {View, StyleProp, StyleSheet} from 'react-native';
 import theme from '../utils/Theme';
 import {Text} from '../';
-const RNSlider = require('react-native-slider');
+import RNSlider from 'react-native-slider';
 
 interface IProps {
   thumbStyle?: StyleProp<any>;
