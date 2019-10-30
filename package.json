@@ -18,7 +18,9 @@
   },
   "scripts": {
     "compile": "npm install && tsc",
-    "build": "rm -rf dist/* && npm run compile && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
+    "build:types": "tsc -d --declarationDir dist/build/lib --declarationMap --emitDeclarationOnly --allowJs false",
+    "dist": "rm -rf dist/* && npm run compile && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
+    "build": "npm run dist && npm run build:types",
     "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
     "eslint": "eslint \"src/**/*.tsx\""
   },
