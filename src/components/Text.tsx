@@ -10,7 +10,7 @@ interface Props {
   style?: StyleProp<TextStyle>;
 }
 
-export default class Text extends React.PureComponent<Props> {
+export default class Text extends React.Component<Props> {
   static defaultProps = {
     type: 'normal',
   };
