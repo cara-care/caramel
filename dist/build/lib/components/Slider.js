@@ -3,16 +3,11 @@ import { View, StyleSheet } from 'react-native';
 import theme from '../utils/Theme';
 import { Text } from '../';
 import RNSlider from 'react-native-slider';
-var ShowHide;
-(function (ShowHide) {
-    ShowHide["SHOW"] = "flex";
-    ShowHide["HIDE"] = "none";
-})(ShowHide || (ShowHide = {}));
 export default class Slider extends PureComponent {
     constructor() {
         super(...arguments);
         this.state = {
-            showTooltip: ShowHide.HIDE,
+            showTooltip: false,
             value: this.props.existingValue ? this.props.existingValue - this.props.minimum : 0,
             componentWidth: 0,
             textWidth: 0
@@ -32,15 +27,15 @@ export default class Slider extends PureComponent {
                 this.setState({ value: value });
                 onValueChange(value + minimum);
             }, onSlidingStart: () => {
-                this.setState({ showTooltip: ShowHide.SHOW });
+                this.setState({ showTooltip: true });
             }, onSlidingComplete: () => {
-                this.setState({ showTooltip: ShowHide.HIDE });
+                this.setState({ showTooltip: false });
             } }), React.createElement(View, { pointerEvents: 'none', onLayout: event => {
                 let { width } = event.nativeEvent.layout;
                 this.setState({ textWidth: width });
             }, style: [styles.thumbTextContainer, {
                 left: textLeftCalculation
-            }] }, React.createElement(Text, { type: "small", style: [thumbTextStyle, styles.thumbText] }, this.state.value + minimum), showTooltipOnSlide && React.createElement(View, { style: [styles.tooltip, { display: this.state.showTooltip }] }, React.createElement(Text, { type: "header4", style: [tooltipStyle, styles.tooltipText] }, this.state.value + minimum)))));
+            }] }, React.createElement(Text, { type: "small", style: [thumbTextStyle, styles.thumbText] }, this.state.value + minimum), showTooltipOnSlide && this.state.showTooltip && React.createElement(View, { style: styles.tooltip }, React.createElement(Text, { type: "header4", style: [tooltipStyle, styles.tooltipText] }, this.state.value + minimum)))));
     }
 }
 Slider.defaultProps = {

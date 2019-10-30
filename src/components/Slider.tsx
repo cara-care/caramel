@@ -22,16 +22,11 @@ interface IProps {
   step?: number;
 }
 
-enum ShowHide {
-  SHOW = 'flex',
-  HIDE = 'none',
-}
-
 interface IState {
   value: number;
   componentWidth: number;
   textWidth: number;
-  showTooltip: ShowHide;
+  showTooltip: boolean;
 }
 
 export default class Slider extends PureComponent<IProps, IState> {
@@ -42,7 +37,7 @@ export default class Slider extends PureComponent<IProps, IState> {
   };
 
   state = {
-    showTooltip: ShowHide.HIDE,
+    showTooltip: false,
     value: this.props.existingValue
       ? this.props.existingValue - this.props.minimum
       : 0,
@@ -116,10 +111,10 @@ export default class Slider extends PureComponent<IProps, IState> {
               onValueChange(value + minimum);
             }}
             onSlidingStart={() => {
-              this.setState({showTooltip: ShowHide.SHOW});
+              this.setState({showTooltip: true});
             }}
             onSlidingComplete={() => {
-              this.setState({showTooltip: ShowHide.HIDE});
+              this.setState({showTooltip: false});
             }}
           />
           <View
@@ -137,8 +132,8 @@ export default class Slider extends PureComponent<IProps, IState> {
             <Text type="small" style={[thumbTextStyle, styles.thumbText]}>
               {this.state.value + minimum}
             </Text>
-            {showTooltipOnSlide && (
-              <View style={[styles.tooltip, {display: this.state.showTooltip}]}>
+            {showTooltipOnSlide && this.state.showTooltip && (
+              <View style={styles.tooltip}>
                 <Text type="header4" style={[tooltipStyle, styles.tooltipText]}>
                   {this.state.value + minimum}
                 </Text>

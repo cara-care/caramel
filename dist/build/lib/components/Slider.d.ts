@@ -17,15 +17,11 @@ interface IProps {
     showTooltipOnSlide?: boolean;
     step?: number;
 }
-declare enum ShowHide {
-    SHOW = "flex",
-    HIDE = "none"
-}
 interface IState {
     value: number;
     componentWidth: number;
     textWidth: number;
-    showTooltip: ShowHide;
+    showTooltip: boolean;
 }
 export default class Slider extends PureComponent<IProps, IState> {
     static defaultProps: {
@@ -34,7 +30,7 @@ export default class Slider extends PureComponent<IProps, IState> {
         showTooltipOnSlide: boolean;
     };
     state: {
-        showTooltip: ShowHide;
+        showTooltip: boolean;
         value: number;
         componentWidth: number;
         textWidth: number;
