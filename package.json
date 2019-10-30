@@ -17,7 +17,6 @@
     "email": "hello@cara.care"
   },
   "scripts": {
-    "lint": "eslint .",
     "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
     "build": " rm -rf dist/* && babel . --out-dir dist --ignore node_modules,dist,stories --source-maps",
     "eslint": "eslint \"src/**/*.tsx\""
