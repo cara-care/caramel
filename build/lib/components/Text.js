@@ -1,3 +1,4 @@
+"use strict";
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -9,27 +10,29 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-import * as React from 'react';
-import { Text as RNText } from 'react-native';
-import theme from '../utils/Theme';
-export default class Text extends React.Component {
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
+const react_native_1 = require("react-native");
+const Theme_1 = require("../utils/Theme");
+class Text extends React.Component {
     render() {
         const _a = this.props, { type, style, numberOfLines, gutterBottom } = _a, rest = __rest(_a, ["type", "style", "numberOfLines", "gutterBottom"]);
         const isHeader = type.startsWith('header');
         const defaultStyles = [
-            theme.typography[type],
+            Theme_1.default.typography[type],
             {
-                color: isHeader ? theme.colors.dusk : theme.typography.color,
+                color: isHeader ? Theme_1.default.colors.dusk : Theme_1.default.typography.color,
                 marginBottom: gutterBottom
                     ? isHeader
-                        ? theme.spacing.md
-                        : theme.spacing.sm
+                        ? Theme_1.default.spacing.md
+                        : Theme_1.default.spacing.sm
                     : 0,
             },
         ];
-        return (React.createElement(RNText, Object.assign({ style: [defaultStyles, style] }, { numberOfLines }, rest)));
+        return (React.createElement(react_native_1.Text, Object.assign({ style: [defaultStyles, style] }, { numberOfLines }, rest)));
     }
 }
+exports.default = Text;
 Text.defaultProps = {
     type: 'normal',
 };

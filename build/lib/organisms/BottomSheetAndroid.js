@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import { KeyboardAvoidingView, Modal, TouchableOpacity, Animated, PanResponder, Platform, StyleSheet, Text, } from 'react-native';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = require("react");
+const react_native_1 = require("react-native");
 const ORIENTATIONS = [
     'portrait',
     'portrait-upside-down',
@@ -7,14 +9,14 @@ const ORIENTATIONS = [
     'landscape-left',
     'landscape-right',
 ];
-class BottomSheetAndroid extends Component {
+class BottomSheetAndroid extends react_1.Component {
     constructor(props) {
         super(props);
         this.height = 0;
         this.state = {
             modalVisible: false,
-            animatedHeight: new Animated.Value(0),
-            pan: new Animated.ValueXY(),
+            animatedHeight: new react_native_1.Animated.Value(0),
+            pan: new react_native_1.Animated.ValueXY(),
         };
         this.height = props.buttonHeight * props.options.length + 30;
         if (!this.height) {
@@ -27,20 +29,20 @@ class BottomSheetAndroid extends Component {
         const { animatedHeight, pan } = this.state;
         if (visible) {
             this.setState({ modalVisible: visible });
-            Animated.timing(animatedHeight, {
+            react_native_1.Animated.timing(animatedHeight, {
                 toValue: this.height,
                 duration,
             }).start();
         }
         else {
-            Animated.timing(animatedHeight, {
+            react_native_1.Animated.timing(animatedHeight, {
                 toValue: minClosingHeight,
                 duration,
             }).start(() => {
                 pan.setValue({ x: 0, y: 0 });
                 this.setState({
                     modalVisible: visible,
-                    animatedHeight: new Animated.Value(0),
+                    animatedHeight: new react_native_1.Animated.Value(0),
                 });
                 if (typeof onClose === 'function') {
                     onClose();
@@ -51,11 +53,11 @@ class BottomSheetAndroid extends Component {
     createPanResponder(props) {
         const { closeOnDragDown } = props;
         const { pan } = this.state;
-        this.panResponder = PanResponder.create({
+        this.panResponder = react_native_1.PanResponder.create({
             onStartShouldSetPanResponder: () => closeOnDragDown ? closeOnDragDown : false,
             onPanResponderMove: (e, gestureState) => {
                 if (gestureState.dy > 0) {
-                    Animated.event([null, { dy: pan.y }])(e, gestureState);
+                    react_native_1.Animated.event([null, { dy: pan.y }])(e, gestureState);
                 }
             },
             onPanResponderRelease: (e, gestureState) => {
@@ -63,7 +65,7 @@ class BottomSheetAndroid extends Component {
                     this.setModalVisible(false);
                 }
                 else {
-                    Animated.spring(pan, { toValue: { x: 0, y: 0 } }).start();
+                    react_native_1.Animated.spring(pan, { toValue: { x: 0, y: 0 } }).start();
                 }
             },
         });
@@ -80,23 +82,23 @@ class BottomSheetAndroid extends Component {
         const panStyle = {
             transform: pan.getTranslateTransform(),
         };
-        return (React.createElement(Modal, { transparent: true, animationType: animationType, visible: modalVisible, supportedOrientations: ORIENTATIONS, onRequestClose: () => {
+        return (react_1.default.createElement(react_native_1.Modal, { transparent: true, animationType: animationType, visible: modalVisible, supportedOrientations: ORIENTATIONS, onRequestClose: () => {
                 if (closeOnPressBack) {
                     this.setModalVisible(false);
                 }
             } },
-            React.createElement(KeyboardAvoidingView, { enabled: Platform.OS === 'ios', behavior: "padding", style: [
+            react_1.default.createElement(react_native_1.KeyboardAvoidingView, { enabled: react_native_1.Platform.OS === 'ios', behavior: "padding", style: [
                     styles.wrapper,
                     customStyles ? customStyles.wrapper : undefined,
                 ] },
-                React.createElement(TouchableOpacity, { style: styles.mask, activeOpacity: 1, onPress: () => (closeOnPressMask ? this.close() : null) }),
-                React.createElement(Animated.View, Object.assign({}, (this.panResponder ? this.panResponder.panHandlers : undefined), { style: [
+                react_1.default.createElement(react_native_1.TouchableOpacity, { style: styles.mask, activeOpacity: 1, onPress: () => (closeOnPressMask ? this.close() : null) }),
+                react_1.default.createElement(react_native_1.Animated.View, Object.assign({}, (this.panResponder ? this.panResponder.panHandlers : undefined), { style: [
                         panStyle,
                         styles.container,
                         { height: animatedHeight },
                         customStyles ? customStyles.container : undefined,
                     ] }), options &&
-                    options.map((option, index) => (React.createElement(TouchableOpacity, { key: index, onPress: () => {
+                    options.map((option, index) => (react_1.default.createElement(react_native_1.TouchableOpacity, { key: index, onPress: () => {
                             if (index !== cancelButtonIndex) {
                                 this.props.onPressWithIndex(index);
                                 if (closeOnButtonPress) {
@@ -107,10 +109,10 @@ class BottomSheetAndroid extends Component {
                                 this.close();
                             }
                         }, style: [styles.button, { height: this.props.buttonHeight }] },
-                        React.createElement(Text, { style: styles.text }, option))))))));
+                        react_1.default.createElement(react_native_1.Text, { style: styles.text }, option))))))));
     }
 }
-const styles = StyleSheet.create({
+const styles = react_native_1.StyleSheet.create({
     text: {
         fontSize: 20,
         lineHeight: 32,
@@ -149,5 +151,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#ccc',
     },
 });
-export default BottomSheetAndroid;
+exports.default = BottomSheetAndroid;
 //# sourceMappingURL=BottomSheetAndroid.js.map

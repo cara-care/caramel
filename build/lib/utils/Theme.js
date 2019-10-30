@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const mediumGrey = '#AEAEAE';
 const kaleGreen = '#1E8080';
 const aquaMarine = '#50E3C2';
@@ -83,5 +85,5 @@ const theme = {
         xl: 64,
     },
 };
-export default theme;
+exports.default = theme;
 //# sourceMappingURL=Theme.js.map
