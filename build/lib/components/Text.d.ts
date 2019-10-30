@@ -1,13 +1,13 @@
-import React, { ReactText } from 'react';
+import React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 interface Props {
     type: 'header1' | 'header2' | 'header3' | 'header4' | 'normal' | 'small';
     numberOfLines?: number;
     gutterBottom?: boolean;
-    children: ReactText | ReactText[];
+    children: React.ReactText | React.ReactText[];
     style?: StyleProp<TextStyle>;
 }
-export default class Text extends React.PureComponent<Props> {
+export default class Text extends React.Component<Props> {
     static defaultProps: {
         type: string;
     };

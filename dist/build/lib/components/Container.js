@@ -56,7 +56,7 @@ var Container = /** @class */function (_super) {
         bgColor: '#fff'
     };
     return Container;
-}(react_1.default.Component);
+}(react_1.Component);
 var styles = react_native_1.StyleSheet.create({
     root: {
         flex: 1

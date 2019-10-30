@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ViewStyle, RegisteredStyle } from 'react-native';
 interface Props {
     children: React.ReactNode;
@@ -8,7 +8,7 @@ interface Props {
     iosStatusBarColor?: string;
     iosBottomSafeArea?: boolean;
 }
-declare class Container extends React.Component<Props> {
+declare class Container extends Component<Props> {
     static defaultProps: {
         bgColor: string;
     };

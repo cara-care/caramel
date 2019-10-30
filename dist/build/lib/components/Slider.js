@@ -85,7 +85,7 @@ var Slider = /** @class */function (_super) {
         showTooltipOnSlide: true
     };
     return Slider;
-}(react_1.default.PureComponent);
+}(react_1.PureComponent);
 exports.default = Slider;
 var styles = react_native_1.StyleSheet.create({
     tooltipText: {

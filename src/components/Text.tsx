@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {Text as RNText, StyleProp, TextStyle} from 'react-native';
 import theme from '../utils/Theme';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { PureComponent } from 'react';
 import { StyleProp } from 'react-native';
 interface IProps {
     thumbStyle?: StyleProp<any>;
@@ -27,7 +27,7 @@ interface IState {
     textWidth: number;
     showTooltip: ShowHide;
 }
-export default class Slider extends React.PureComponent<IProps, IState> {
+export default class Slider extends PureComponent<IProps, IState> {
     static defaultProps: {
         step: number;
         thumbWidth: number;

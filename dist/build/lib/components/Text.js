@@ -62,7 +62,7 @@ var Text = /** @class */function (_super) {
         type: 'normal'
     };
     return Text;
-}(react_1.default.PureComponent);
+}(react_1.default.Component);
 exports.default = Text;
 //# sourceMappingURL=Text.js.map
 //# sourceMappingURL=Text.js.map
