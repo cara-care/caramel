@@ -1,4 +1,4 @@
-import React, {ReactText} from 'react';
+import React, {ReactText, PureComponent} from 'react';
 import {Text as RNText, StyleProp, TextStyle} from 'react-native';
 import theme from '../utils/Theme';
 
@@ -10,7 +10,7 @@ interface Props {
   style?: StyleProp<TextStyle>;
 }
 
-export default class Text extends React.PureComponent<Props> {
+export default class Text extends PureComponent<Props> {
   static defaultProps = {
     type: 'normal',
   };

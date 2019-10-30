@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   View,
   StyleSheet,
@@ -18,7 +18,7 @@ interface Props {
   iosBottomSafeArea?: boolean;
 }
 
-class Container extends React.Component<Props> {
+class Container extends Component<Props> {
   static defaultProps = {
     bgColor: '#fff',
   };
