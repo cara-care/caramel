@@ -1,55 +1,96 @@
 "use strict";
-
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = require("react");
+const react_1 = __importStar(require("react"));
 const react_native_1 = require("react-native");
-const Theme_1 = require("../utils/Theme");
+const Theme_1 = __importDefault(require("../utils/Theme"));
 const __1 = require("../");
-const react_native_slider_1 = require("react-native-slider");
+const react_native_slider_1 = __importDefault(require("react-native-slider"));
 class Slider extends react_1.PureComponent {
     constructor() {
         super(...arguments);
         this.state = {
             showTooltip: false,
-            value: this.props.existingValue ? this.props.existingValue - this.props.minimum : 0,
+            value: this.props.existingValue
+                ? this.props.existingValue - this.props.minimum
+                : 0,
             componentWidth: 0,
-            textWidth: 0
+            textWidth: 0,
         };
     }
     render() {
-        const { minimum, maximum, thumbWidth, leftText, rightText, showTooltipOnSlide, leftTextStyle, rightTextStyle } = this.props;
+        const { minimum, maximum, thumbWidth, leftText, rightText, showTooltipOnSlide, leftTextStyle, rightTextStyle, } = this.props;
         const division = maximum - minimum;
-        const textLeftCalculation = thumbWidth ? (this.state.componentWidth - thumbWidth) / division * this.state.value + thumbWidth / 2 - this.state.textWidth / 2 : 0;
-        const leftTopText = leftText ? react_1.default.createElement(__1.Text, { type: "normal", style: [styles.topTexts, leftTextStyle] }, leftText) : react_1.default.createElement(react_native_1.View, null);
-        const rightTopText = rightText ? react_1.default.createElement(__1.Text, { type: "normal", style: [styles.topTexts, rightTextStyle] }, rightText) : react_1.default.createElement(react_native_1.View, null);
-        const { thumbStyle, trackStyle, thumbTextStyle, tooltipStyle, onValueChange, step } = this.props;
-        return react_1.default.createElement(react_native_1.View, null, react_1.default.createElement(react_native_1.View, { style: styles.topTextsContainer }, leftTopText, rightTopText), react_1.default.createElement(react_native_1.View, { onLayout: event => {
-                let { width } = event.nativeEvent.layout;
-                this.setState({ componentWidth: width });
-            } }, react_1.default.createElement(react_native_slider_1.default, { value: this.state.value, minimumValue: 0, maximumValue: maximum - minimum, minimumTrackTintColor: Theme_1.default.colors.primary, maximumTrackTintColor: 'rgb(224, 247, 247)', step: step, thumbStyle: [thumbStyle, { width: thumbWidth }], trackStyle: [trackStyle, styles.trackStyle], onValueChange: value => {
-                this.setState({ value: value });
-                onValueChange(value + minimum);
-            }, onSlidingStart: () => {
-                this.setState({ showTooltip: true });
-            }, onSlidingComplete: () => {
-                this.setState({ showTooltip: false });
-            } }), react_1.default.createElement(react_native_1.View, { pointerEvents: 'none', onLayout: event => {
-                let { width } = event.nativeEvent.layout;
-                this.setState({ textWidth: width });
-            }, style: [styles.thumbTextContainer, {
-                left: textLeftCalculation
-            }] }, react_1.default.createElement(__1.Text, { type: "small", style: [thumbTextStyle, styles.thumbText] }, this.state.value + minimum), showTooltipOnSlide && this.state.showTooltip && react_1.default.createElement(react_native_1.View, { style: styles.tooltip }, react_1.default.createElement(__1.Text, { type: "header4", style: [tooltipStyle, styles.tooltipText] }, this.state.value + minimum)))));
+        const textLeftCalculation = thumbWidth
+            ? ((this.state.componentWidth - thumbWidth) / division) *
+                this.state.value +
+                thumbWidth / 2 -
+                this.state.textWidth / 2
+            : 0;
+        const leftTopText = leftText ? (<__1.Text type="normal" style={[styles.topTexts, leftTextStyle]}>
+        {leftText}
+      </__1.Text>) : (<react_native_1.View />);
+        const rightTopText = rightText ? (<__1.Text type="normal" style={[styles.topTexts, rightTextStyle]}>
+        {rightText}
+      </__1.Text>) : (<react_native_1.View />);
+        const { thumbStyle, trackStyle, thumbTextStyle, tooltipStyle, onValueChange, step, } = this.props;
+        return (<react_native_1.View>
+        <react_native_1.View style={styles.topTextsContainer}>
+          {leftTopText}
+          {rightTopText}
+        </react_native_1.View>
+        <react_native_1.View onLayout={event => {
+            let { width } = event.nativeEvent.layout;
+            this.setState({ componentWidth: width });
+        }}>
+          <react_native_slider_1.default value={this.state.value} minimumValue={0} maximumValue={maximum - minimum} minimumTrackTintColor={Theme_1.default.colors.primary} maximumTrackTintColor={'rgb(224, 247, 247)'} step={step} thumbStyle={[thumbStyle, { width: thumbWidth }]} trackStyle={[trackStyle, styles.trackStyle]} onValueChange={(value) => {
+            this.setState({ value: value });
+            onValueChange(value + minimum);
+        }} onSlidingStart={() => {
+            this.setState({ showTooltip: true });
+        }} onSlidingComplete={() => {
+            this.setState({ showTooltip: false });
+        }}/>
+          <react_native_1.View pointerEvents={'none'} onLayout={event => {
+            let { width } = event.nativeEvent.layout;
+            this.setState({ textWidth: width });
+        }} style={[
+            styles.thumbTextContainer,
+            {
+                left: textLeftCalculation,
+            },
+        ]}>
+            <__1.Text type="small" style={[thumbTextStyle, styles.thumbText]}>
+              {this.state.value + minimum}
+            </__1.Text>
+            {showTooltipOnSlide && this.state.showTooltip && (<react_native_1.View style={styles.tooltip}>
+                <__1.Text type="header4" style={[tooltipStyle, styles.tooltipText]}>
+                  {this.state.value + minimum}
+                </__1.Text>
+              </react_native_1.View>)}
+          </react_native_1.View>
+        </react_native_1.View>
+      </react_native_1.View>);
     }
 }
 exports.default = Slider;
 Slider.defaultProps = {
     step: 1,
     thumbWidth: 50,
-    showTooltipOnSlide: true
+    showTooltipOnSlide: true,
 };
 const styles = react_native_1.StyleSheet.create({
     tooltipText: {
-        color: 'white'
+        color: 'white',
     },
     tooltip: {
         height: 49,
@@ -59,15 +100,15 @@ const styles = react_native_1.StyleSheet.create({
         top: -75,
         borderRadius: 24,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     topTextsContainer: {
         marginBottom: 13,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     topTexts: {
-        opacity: 0.8
+        opacity: 0.8,
     },
     thumbTextContainer: {
         position: 'absolute',
@@ -76,15 +117,14 @@ const styles = react_native_1.StyleSheet.create({
         zIndex: 10,
         justifyContent: 'center',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     trackStyle: {
         borderRadius: 5,
-        height: 10
+        height: 10,
     },
     thumbText: {
-        color: Theme_1.default.colors.dusk
-    }
+        color: Theme_1.default.colors.dusk,
+    },
 });
-//# sourceMappingURL=Slider.js.map
 //# sourceMappingURL=Slider.js.map

@@ -1,9 +1,21 @@
 "use strict";
-
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = require("react");
+const react_1 = __importStar(require("react"));
 const react_native_1 = require("react-native");
-const ORIENTATIONS = ['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right'];
+const ORIENTATIONS = [
+    'portrait',
+    'portrait-upside-down',
+    'landscape',
+    'landscape-left',
+    'landscape-right',
+];
 class BottomSheetAndroid extends react_1.Component {
     constructor(props) {
         super(props);
@@ -11,7 +23,7 @@ class BottomSheetAndroid extends react_1.Component {
         this.state = {
             modalVisible: false,
             animatedHeight: new react_native_1.Animated.Value(0),
-            pan: new react_native_1.Animated.ValueXY()
+            pan: new react_native_1.Animated.ValueXY(),
         };
         this.height = props.buttonHeight * props.options.length + 30;
         if (!this.height) {
@@ -26,17 +38,18 @@ class BottomSheetAndroid extends react_1.Component {
             this.setState({ modalVisible: visible });
             react_native_1.Animated.timing(animatedHeight, {
                 toValue: this.height,
-                duration
+                duration,
             }).start();
-        } else {
+        }
+        else {
             react_native_1.Animated.timing(animatedHeight, {
                 toValue: minClosingHeight,
-                duration
+                duration,
             }).start(() => {
                 pan.setValue({ x: 0, y: 0 });
                 this.setState({
                     modalVisible: visible,
-                    animatedHeight: new react_native_1.Animated.Value(0)
+                    animatedHeight: new react_native_1.Animated.Value(0),
                 });
                 if (typeof onClose === 'function') {
                     onClose();
@@ -57,10 +70,11 @@ class BottomSheetAndroid extends react_1.Component {
             onPanResponderRelease: (e, gestureState) => {
                 if (this.height / 4 - gestureState.dy < 0) {
                     this.setModalVisible(false);
-                } else {
+                }
+                else {
                     react_native_1.Animated.spring(pan, { toValue: { x: 0, y: 0 } }).start();
                 }
-            }
+            },
         });
     }
     open() {
@@ -70,66 +84,84 @@ class BottomSheetAndroid extends react_1.Component {
         this.setModalVisible(false);
     }
     render() {
-        const { animationType, closeOnPressMask, closeOnPressBack, closeOnButtonPress, options, customStyles, cancelButtonIndex } = this.props;
+        const { animationType, closeOnPressMask, closeOnPressBack, closeOnButtonPress, options, customStyles, cancelButtonIndex, } = this.props;
         const { animatedHeight, pan, modalVisible } = this.state;
         const panStyle = {
-            transform: pan.getTranslateTransform()
+            transform: pan.getTranslateTransform(),
         };
-        return react_1.default.createElement(react_native_1.Modal, { transparent: true, animationType: animationType, visible: modalVisible, supportedOrientations: ORIENTATIONS, onRequestClose: () => {
-                if (closeOnPressBack) {
-                    this.setModalVisible(false);
-                }
-            } }, react_1.default.createElement(react_native_1.KeyboardAvoidingView, { enabled: react_native_1.Platform.OS === 'ios', behavior: "padding", style: [styles.wrapper, customStyles ? customStyles.wrapper : undefined] }, react_1.default.createElement(react_native_1.TouchableOpacity, { style: styles.mask, activeOpacity: 1, onPress: () => closeOnPressMask ? this.close() : null }), react_1.default.createElement(react_native_1.Animated.View, Object.assign({}, this.panResponder ? this.panResponder.panHandlers : undefined, { style: [panStyle, styles.container, { height: animatedHeight }, customStyles ? customStyles.container : undefined] }), options && options.map((option, index) => react_1.default.createElement(react_native_1.TouchableOpacity, { key: index, onPress: () => {
+        return (<react_native_1.Modal transparent animationType={animationType} visible={modalVisible} supportedOrientations={ORIENTATIONS} onRequestClose={() => {
+            if (closeOnPressBack) {
+                this.setModalVisible(false);
+            }
+        }}>
+        <react_native_1.KeyboardAvoidingView enabled={react_native_1.Platform.OS === 'ios'} behavior="padding" style={[
+            styles.wrapper,
+            customStyles ? customStyles.wrapper : undefined,
+        ]}>
+          <react_native_1.TouchableOpacity style={styles.mask} activeOpacity={1} onPress={() => (closeOnPressMask ? this.close() : null)}/>
+          <react_native_1.Animated.View {...(this.panResponder ? this.panResponder.panHandlers : undefined)} style={[
+            panStyle,
+            styles.container,
+            { height: animatedHeight },
+            customStyles ? customStyles.container : undefined,
+        ]}>
+            {options &&
+            options.map((option, index) => (<react_native_1.TouchableOpacity key={index} onPress={() => {
                 if (index !== cancelButtonIndex) {
                     this.props.onPressWithIndex(index);
                     if (closeOnButtonPress) {
                         this.close();
                     }
-                } else if (cancelButtonIndex) {
+                }
+                else if (cancelButtonIndex) {
                     this.close();
                 }
-            }, style: [styles.button, { height: this.props.buttonHeight }] }, react_1.default.createElement(react_native_1.Text, { style: styles.text }, option))))));
+            }} style={[styles.button, { height: this.props.buttonHeight }]}>
+                  <react_native_1.Text style={styles.text}>{option}</react_native_1.Text>
+                </react_native_1.TouchableOpacity>))}
+          </react_native_1.Animated.View>
+        </react_native_1.KeyboardAvoidingView>
+      </react_native_1.Modal>);
     }
 }
 const styles = react_native_1.StyleSheet.create({
     text: {
         fontSize: 20,
         lineHeight: 32,
-        color: '#2e7df6'
+        color: '#2e7df6',
     },
     button: {
         justifyContent: 'center',
         alignItems: 'center',
         borderBottomWidth: 0.2,
-        borderBottomColor: '#535D7E'
+        borderBottomColor: '#535D7E',
     },
     wrapper: {
         flex: 1,
-        backgroundColor: '#00000077'
+        backgroundColor: '#00000077',
     },
     mask: {
         flex: 1,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
     },
     container: {
         backgroundColor: '#fff',
         width: '100%',
         height: 0,
-        overflow: 'hidden'
+        overflow: 'hidden',
     },
     draggableContainer: {
         width: '100%',
         alignItems: 'center',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
     },
     draggableIcon: {
         width: 35,
         height: 5,
         borderRadius: 5,
         margin: 10,
-        backgroundColor: '#ccc'
-    }
+        backgroundColor: '#ccc',
+    },
 });
 exports.default = BottomSheetAndroid;
-//# sourceMappingURL=BottomSheetAndroid.js.map
 //# sourceMappingURL=BottomSheetAndroid.js.map
