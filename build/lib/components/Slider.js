@@ -17,7 +17,7 @@ var react_1 = require("react");
 var react_native_1 = require("react-native");
 var Theme_1 = require("../utils/Theme");
 var __1 = require("../");
-var react_native_slider_1 = require("react-native-slider");
+var RNSlider = require('react-native-slider');
 var ShowHide;
 (function (ShowHide) {
     ShowHide["SHOW"] = "flex";
@@ -41,9 +41,12 @@ var Slider = /** @class */ (function (_super) {
         var _this = this;
         var _a = this.props, minimum = _a.minimum, maximum = _a.maximum, thumbWidth = _a.thumbWidth, leftText = _a.leftText, rightText = _a.rightText, showTooltipOnSlide = _a.showTooltipOnSlide, leftTextStyle = _a.leftTextStyle, rightTextStyle = _a.rightTextStyle;
         var division = maximum - minimum;
-        var textLeftCalculation = ((this.state.componentWidth - thumbWidth) / division) * this.state.value +
-            thumbWidth / 2 -
-            this.state.textWidth / 2;
+        var textLeftCalculation = thumbWidth
+            ? ((this.state.componentWidth - thumbWidth) / division) *
+                this.state.value +
+                thumbWidth / 2 -
+                this.state.textWidth / 2
+            : 0;
         var leftTopText = leftText ? (react_1.default.createElement(__1.Text, { type: "normal", style: [styles.topTexts, leftTextStyle] }, leftText)) : (react_1.default.createElement(react_native_1.View, null));
         var rightTopText = rightText ? (react_1.default.createElement(__1.Text, { type: "normal", style: [styles.topTexts, rightTextStyle] }, rightText)) : (react_1.default.createElement(react_native_1.View, null));
         var _b = this.props, thumbStyle = _b.thumbStyle, trackStyle = _b.trackStyle, thumbTextStyle = _b.thumbTextStyle, tooltipStyle = _b.tooltipStyle, onValueChange = _b.onValueChange, step = _b.step;
@@ -55,7 +58,7 @@ var Slider = /** @class */ (function (_super) {
                     var width = event.nativeEvent.layout.width;
                     _this.setState({ componentWidth: width });
                 } },
-                react_1.default.createElement(react_native_slider_1.default, { value: this.state.value, minimumValue: 0, maximumValue: maximum - minimum, minimumTrackTintColor: Theme_1.default.colors.primary, maximumTrackTintColor: 'rgb(224, 247, 247)', step: step, thumbStyle: [thumbStyle, { width: thumbWidth }], trackStyle: [trackStyle, styles.trackStyle], onValueChange: function (value) {
+                react_1.default.createElement(RNSlider, { value: this.state.value, minimumValue: 0, maximumValue: maximum - minimum, minimumTrackTintColor: Theme_1.default.colors.primary, maximumTrackTintColor: 'rgb(224, 247, 247)', step: step, thumbStyle: [thumbStyle, { width: thumbWidth }], trackStyle: [trackStyle, styles.trackStyle], onValueChange: function (value) {
                         _this.setState({ value: value });
                         onValueChange(value + minimum);
                     }, onSlidingStart: function () {

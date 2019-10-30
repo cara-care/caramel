@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {View, StyleProp, StyleSheet} from 'react-native';
 import theme from '../utils/Theme';
 import {Text} from '../';
-import {default as RNSlider} from 'react-native-slider';
+const RNSlider = require('react-native-slider');
 
 interface IProps {
   thumbStyle?: StyleProp<any>;
@@ -62,10 +62,12 @@ export default class Slider extends PureComponent<IProps, IState> {
       rightTextStyle,
     } = this.props;
     const division = maximum - minimum;
-    const textLeftCalculation =
-      ((this.state.componentWidth - thumbWidth) / division) * this.state.value +
-      thumbWidth / 2 -
-      this.state.textWidth / 2;
+    const textLeftCalculation = thumbWidth
+      ? ((this.state.componentWidth - thumbWidth) / division) *
+          this.state.value +
+        thumbWidth / 2 -
+        this.state.textWidth / 2
+      : 0;
 
     const leftTopText = leftText ? (
       <Text type="normal" style={[styles.topTexts, leftTextStyle]}>
