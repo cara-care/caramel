@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export default class CenterView extends Component<IProps, any> {
-  defaultProps = {
+  static defaultProps = {
     children: null,
   };
 
