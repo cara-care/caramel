@@ -20,6 +20,7 @@ interface IProps {
   rightText?: string;
   showTooltipOnSlide?: boolean;
   step?: number;
+  tintColor?: string;
 }
 
 interface IState {
@@ -85,6 +86,7 @@ export default class Slider extends PureComponent<IProps, IState> {
       tooltipStyle,
       onValueChange,
       step,
+      tintColor,
     } = this.props;
     return (
       <View>
@@ -101,11 +103,11 @@ export default class Slider extends PureComponent<IProps, IState> {
             value={this.state.value}
             minimumValue={0}
             maximumValue={maximum - minimum}
-            minimumTrackTintColor={theme.colors.primary}
+            minimumTrackTintColor={tintColor?tintColor:theme.colors.primary}
             maximumTrackTintColor={'rgb(224, 247, 247)'}
             step={step}
             thumbStyle={[thumbStyle, {width: thumbWidth}]}
-            trackStyle={[trackStyle, styles.trackStyle]}
+            trackStyle={[styles.trackStyle, trackStyle]}
             onValueChange={(value: number) => {
               this.setState({value: value});
               onValueChange(value + minimum);

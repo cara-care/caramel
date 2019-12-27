@@ -16,6 +16,7 @@ interface IProps {
     rightText?: string;
     showTooltipOnSlide?: boolean;
     step?: number;
+    tintColor?: string;
 }
 interface IState {
     value: number;

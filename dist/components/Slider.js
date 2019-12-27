@@ -26,7 +26,7 @@ export default class Slider extends PureComponent {
             : 0;
         const leftTopText = leftText ? (React.createElement(Text, { type: "normal", style: [styles.topTexts, leftTextStyle] }, leftText)) : (React.createElement(View, null));
         const rightTopText = rightText ? (React.createElement(Text, { type: "normal", style: [styles.topTexts, rightTextStyle] }, rightText)) : (React.createElement(View, null));
-        const { thumbStyle, trackStyle, thumbTextStyle, tooltipStyle, onValueChange, step, } = this.props;
+        const { thumbStyle, trackStyle, thumbTextStyle, tooltipStyle, onValueChange, step, tintColor, } = this.props;
         return (React.createElement(View, null,
             React.createElement(View, { style: styles.topTextsContainer },
                 leftTopText,
@@ -35,7 +35,7 @@ export default class Slider extends PureComponent {
                     let { width } = event.nativeEvent.layout;
                     this.setState({ componentWidth: width });
                 } },
-                React.createElement(RNSlider, { value: this.state.value, minimumValue: 0, maximumValue: maximum - minimum, minimumTrackTintColor: theme.colors.primary, maximumTrackTintColor: 'rgb(224, 247, 247)', step: step, thumbStyle: [thumbStyle, { width: thumbWidth }], trackStyle: [trackStyle, styles.trackStyle], onValueChange: (value) => {
+                React.createElement(RNSlider, { value: this.state.value, minimumValue: 0, maximumValue: maximum - minimum, minimumTrackTintColor: tintColor ? tintColor : theme.colors.primary, maximumTrackTintColor: 'rgb(224, 247, 247)', step: step, thumbStyle: [thumbStyle, { width: thumbWidth }], trackStyle: [styles.trackStyle, trackStyle], onValueChange: (value) => {
                         this.setState({ value: value });
                         onValueChange(value + minimum);
                     }, onSlidingStart: () => {
