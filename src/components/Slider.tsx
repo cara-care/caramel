@@ -16,6 +16,7 @@ interface IProps {
   onValueChange: (value: number) => void;
   thumbWidth?: number;
   existingValue?: number;
+  value?: number;
   leftText?: string;
   rightText?: string;
   showTooltipOnSlide?: boolean;
@@ -39,9 +40,9 @@ export default class Slider extends PureComponent<IProps, IState> {
 
   state = {
     showTooltip: false,
-    value: this.props.existingValue
+    value: this.props.value || (this.props.existingValue
       ? this.props.existingValue - this.props.minimum
-      : 0,
+      : 0),
     componentWidth: 0,
     textWidth: 0,
   };
@@ -100,7 +101,7 @@ export default class Slider extends PureComponent<IProps, IState> {
             this.setState({componentWidth: width});
           }}>
           <RNSlider
-            value={this.state.value}
+            value={this.props.value || this.state.value}
             minimumValue={0}
             maximumValue={maximum - minimum}
             minimumTrackTintColor={tintColor?tintColor:theme.colors.primary}

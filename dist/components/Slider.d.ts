@@ -12,6 +12,7 @@ interface IProps {
     onValueChange: (value: number) => void;
     thumbWidth?: number;
     existingValue?: number;
+    value?: number;
     leftText?: string;
     rightText?: string;
     showTooltipOnSlide?: boolean;
