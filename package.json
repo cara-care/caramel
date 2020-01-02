@@ -1,5 +1,5 @@
 {
-  "name": "caramel",
+  "name": "@cara-care/caramel",
   "title": "Caramel",
   "version": "0.0.1",
   "description": "Cross-platform UI component library for React Native.",
@@ -10,6 +10,12 @@
     "url": "git+https://github.com/cara-care/caramel.git",
     "baseUrl": "https://github.com/cara-care/caramel"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "react-native"
   ],
@@ -18,7 +24,9 @@
     "email": "hello@cara.care"
   },
   "scripts": {
-    "prepublish": "tsc -d",
+    "clean": "rimraf dist",
+    "build": "tsc -d",
+    "prepublishOnly": "npm run build",
     "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
     "eslint": "eslint \"src/**/*.tsx\""
   },
@@ -43,6 +51,7 @@
     "prettier": "^1.18.2",
     "react-native-gesture-handler": "^1.5.0",
     "react-navigation": "^4.0.10",
+    "rimraf": "^3.0.0",
     "typescript": "^3.6.4"
   }
 }

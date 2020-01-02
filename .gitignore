@@ -12,5 +12,5 @@ yarn-error.log
 package-lock.json
 
 # outputs
-# dist/ TODO: once we find a way to actually publish this to npm or somewhere else this should be ignored
+dist/
 build/
