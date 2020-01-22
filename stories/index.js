@@ -5,7 +5,14 @@ import {storiesOf} from '@storybook/react-native';
 
 /** eslint-disable-next-line import/extensions */
 import CenterView from './CenterView';
-import {Slider, Text, BottomActionSheet} from '../src/';
+import {
+  Slider,
+  Text,
+  AnimatedProgressBar,
+  ProgressBar,
+  ColorText,
+  BottomActionSheet,
+} from '../src/';
 import theme from '../src/utils/Theme';
 
 storiesOf('Slider', module)
@@ -49,6 +56,42 @@ storiesOf('Texts', module)
     </Text>
   ));
 
+storiesOf('ColorText', module)
+  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .add('One Color', () => (
+    <ColorText style={{color: theme.colors.dusk}}>
+      [color:#ff0000]Hello this is a very colorful text![/color]
+    </ColorText>
+  ))
+  .add('Multiple Colors', () => (
+    <ColorText style={{color: theme.colors.dusk}}>
+      [color:#ff0000]Hello[/color] [color:#00ff00]this is a[/color]
+      [color:#0000ff]very colorful[/color] text!
+    </ColorText>
+  ));
+
+storiesOf('ProgressBar', module)
+  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .add('ProgressBar', () => (
+    <ProgressBar
+      progress={0.5}
+      style={styles.animatedProgress}
+      progressTintColor={theme.colors.primary}
+      trackTintColor="transparent"
+      styleAttr="Horizontal"
+      progressViewStyle="default"
+      indeterminate={false}
+    />
+  ))
+  .add('AnimatedProgressBar', () => (
+    <AnimatedProgressBar
+      style={styles.animatedProgress}
+      background={{height: 4}}
+      foreground={{height: 4}}
+      percentage={50}
+    />
+  ));
+
 storiesOf('BottomActionSheet', module)
   .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
   .add('BottomActionSheet', () => (
@@ -76,6 +119,12 @@ storiesOf('BottomActionSheet', module)
   ));
 
 const styles = StyleSheet.create({
+  animatedProgress: {
+    position: 'absolute',
+    top: '50%',
+    left: 60,
+    right: 60,
+  },
   thumbStyle: {
     height: 31,
     borderRadius: 15.5,
