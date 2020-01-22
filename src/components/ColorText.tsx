@@ -11,7 +11,7 @@ interface IProps {
 interface IState {}
 export default class ColorText extends Component<IProps, IState> {
   render() {
-    let colorText = this.props.children?.toString() ?? '';
+    let colorText = this.props.children ? this.props.children.toString() : '';
     const colorRegExp = new RegExp('\\[color:(.*?)](.*?)\\[\\/color]');
 
     let structuredText: {color?: string; value: string}[] = [];
@@ -31,7 +31,7 @@ export default class ColorText extends Component<IProps, IState> {
         });
 
         colorText = colorText.substring(
-          (regExpMatch.index ?? 0) + regExpMatch[0].length,
+          (regExpMatch.index || 0) + regExpMatch[0].length,
         );
       } else {
         structuredText.push({
@@ -52,7 +52,7 @@ export default class ColorText extends Component<IProps, IState> {
                 style={[
                   {
                     color: !data.color
-                      ? this.props.regularColor ?? 'black'
+                      ? (this.props.regularColor ? this.props.regularColor : 'black')
                       : data.color,
                   },
                   styles.regularText,
