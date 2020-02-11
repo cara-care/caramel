@@ -108,7 +108,7 @@ export default class ColorText extends Component<IProps, IState> {
                 style={[
                   {
                     color: !data.color
-                      ? this.props.regularColor ?? 'black'
+                      ? (this.props.regularColor || 'black')
                       : data.color,
                     fontWeight:
                       data.formatting === FormatTypes.BOLD ? 'bold' : 'normal',
