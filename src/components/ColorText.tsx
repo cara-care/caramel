@@ -38,7 +38,7 @@ export default class ColorText extends Component<IProps, IState> {
         });
 
         colorText = colorText.substring(
-          (regExpMatch.index ?? 0) + regExpMatch[0].length,
+          (regExpMatch.index || 0) + regExpMatch[0].length,
         );
       } else {
         structuredText.push({
@@ -89,7 +89,7 @@ export default class ColorText extends Component<IProps, IState> {
   }
 
   render() {
-    let colorText = this.props.children?.toString() ?? '';
+    let colorText = this.props.children ? this.props.children.toString() : '';
 
     let structuredText: {
       formatting?: FormatTypes;
