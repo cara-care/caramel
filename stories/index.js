@@ -58,15 +58,25 @@ storiesOf('Texts', module)
 
 storiesOf('ColorText', module)
   .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
-  .add('One Color', () => (
-    <ColorText style={{color: theme.colors.dusk}}>
-      [color:#ff0000]Hello this is a very colorful text![/color]
-    </ColorText>
-  ))
   .add('Multiple Colors', () => (
     <ColorText style={{color: theme.colors.dusk}}>
       [color:#ff0000]Hello[/color] [color:#00ff00]this is a[/color]
       [color:#0000ff]very colorful[/color] text!
+    </ColorText>
+  ))
+  .add('Bold', () => (
+    <ColorText style={{color: theme.colors.dusk}}>
+      [b]Hello this is a very colorful text![/b]
+    </ColorText>
+  ))
+  .add('Italic', () => (
+    <ColorText style={{color: theme.colors.dusk}}>
+      [i]Hello this is a very colorful text![/i]
+    </ColorText>
+  ))
+  .add('Underline', () => (
+    <ColorText style={{color: theme.colors.dusk}}>
+      [u]Hello this is a very colorful text![/u]
     </ColorText>
   ));
 
