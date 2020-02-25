@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Button, View, Platform} from 'react-native';
+import {StyleSheet, Button, View, Platform, Alert} from 'react-native';
 
 import {storiesOf} from '@storybook/react-native';
 
@@ -12,6 +12,9 @@ import {
   ProgressBar,
   ColorText,
   BottomActionSheet,
+  OneLineScore,
+  DropdownList,
+  DropdownRow,
 } from '../src/';
 import theme from '../src/utils/Theme';
 
@@ -78,6 +81,17 @@ storiesOf('ColorText', module)
     <ColorText style={{color: theme.colors.dusk}}>
       [u]Hello this is a very colorful text![/u]
     </ColorText>
+  ))
+  .add('Link', () => (
+    <ColorText
+      style={{color: theme.colors.dusk}}
+      linkTextStyle={{color: theme.colors.primary}}
+      linkEvents={[
+        () => Alert.alert('Here is the alert!'),
+        () => Alert.alert('Second alert!'),
+      ]}>
+      [link]Show me an alert![/link] and then [link]the second alert![/link]
+    </ColorText>
   ));
 
 storiesOf('ProgressBar', module)
@@ -100,6 +114,9 @@ storiesOf('ProgressBar', module)
       foreground={{height: 4}}
       percentage={50}
     />
+  ))
+  .add('One Line Score', () => (
+    <OneLineScore middleCount={2} percentage={60} color={'red'} />
   ));
 
 storiesOf('BottomActionSheet', module)
@@ -122,9 +139,26 @@ storiesOf('BottomActionSheet', module)
           if (Platform.OS === 'android' && index === 0) {
             this.bottomActionSheet.closeSheet();
           }
-          console.log(index);
         }}
       />
+    </View>
+  ));
+
+storiesOf('Dropdown', module)
+  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .add('Dropdown List', () => (
+    <View style={{width: '100%'}}>
+      <DropdownList
+        list={[
+          {name: 'Name', description: 'description', image: undefined},
+          {name: 'Name2', description: 'Description2', image: undefined},
+        ]}
+      />
+    </View>
+  ))
+  .add('Dropdown Row', () => (
+    <View style={{width: '100%'}}>
+      <DropdownRow name={'name'} description={'description'} />
     </View>
   ));
 

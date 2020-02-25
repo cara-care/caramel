@@ -1,7 +1,7 @@
 {
   "name": "@cara-care/caramel",
   "title": "Caramel",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Cross-platform UI component library for React Native.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -34,6 +34,7 @@
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "dependencies": {
+    "react-native-gesture-handler": "^1.6.0",
     "react-native-slider": "^0.11.0"
   },
   "peerDependencies": {
@@ -49,7 +50,6 @@
     "eslint": "5.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.18.2",
-    "react-native-gesture-handler": "^1.5.0",
     "react-navigation": "^4.0.10",
     "rimraf": "^3.0.0",
     "typescript": "^3.6.4"
