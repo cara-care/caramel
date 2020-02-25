@@ -50,7 +50,7 @@ export default class ColorText extends Component<IProps, IState> {
           if (regExpMatch.index !== undefined) {
             partedText.push({
               color: undefined,
-              value: regExpMatch.input?.substring(regExpMatch.index, -1) ?? '',
+              value: regExpMatch.input ? regExpMatch.input.substring(regExpMatch.index, -1) : '',
             });
           }
           partedText.push({
