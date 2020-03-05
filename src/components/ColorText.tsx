@@ -11,7 +11,7 @@ interface IProps {
   linkTextStyle?: TextStyle;
   style?: ViewStyle;
   regularColor?: string;
-  linkEvents: [() => void];
+  linkEvents?: [() => void];
 }
 
 interface IState {}
