@@ -9,12 +9,12 @@ import {
   Slider,
   Text,
   AnimatedProgressBar,
-  ProgressBar,
   ColorText,
   BottomActionSheet,
   OneLineScore,
   DropdownList,
   DropdownRow,
+  IconButton,
 } from '../src/';
 import theme from '../src/utils/Theme';
 
@@ -33,6 +33,17 @@ storiesOf('Slider', module)
       rightText={'Extreme'}
       existingValue={5}
       thumbStyle={styles.thumbStyle}
+    />
+  ));
+
+storiesOf('Button', module)
+  .addDecorator(getStory => <CenterView align={false}>{getStory()}</CenterView>)
+  .add('IconButton', () => (
+    <IconButton
+      onPress={() => Alert.alert('I really do!')}
+      textStyle={{fontFamily: theme.typography.medium}}
+      text={'I have icons'}
+      rightIcon={require('../src/images/iconArrowDown.png')}
     />
   ));
 
@@ -96,17 +107,6 @@ storiesOf('ColorText', module)
 
 storiesOf('ProgressBar', module)
   .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
-  .add('ProgressBar', () => (
-    <ProgressBar
-      progress={0.5}
-      style={styles.animatedProgress}
-      progressTintColor={theme.colors.primary}
-      trackTintColor="transparent"
-      styleAttr="Horizontal"
-      progressViewStyle="default"
-      indeterminate={false}
-    />
-  ))
   .add('AnimatedProgressBar', () => (
     <AnimatedProgressBar
       style={styles.animatedProgress}
