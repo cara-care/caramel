@@ -12,7 +12,7 @@ import {
   ColorText,
   BottomActionSheet,
   OneLineScore,
-  DropdownList,
+  Accordion,
   DropdownRow,
   IconButton,
 } from '../src/';
@@ -148,7 +148,7 @@ storiesOf('Dropdown', module)
   .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
   .add('Dropdown List', () => (
     <View style={{width: '100%'}}>
-      <DropdownList
+      <Accordion
         list={[
           {name: 'Name', description: 'description', image: undefined},
           {name: 'Name2', description: 'Description2', image: undefined},

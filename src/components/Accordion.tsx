@@ -1,6 +1,11 @@
 import React from 'react';
-import {ImageURISource, ViewStyle, FlatList, ImageStyle, TextStyle} from 'react-native';
-// import {FlatList} from 'react-native-gesture-handler';
+import {
+  ImageURISource,
+  ViewStyle,
+  FlatList,
+  ImageStyle,
+  TextStyle,
+} from 'react-native';
 import {AccordionRow} from '..';
 
 interface IProps {
