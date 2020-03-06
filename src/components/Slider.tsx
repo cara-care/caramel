@@ -1,5 +1,11 @@
 import React, {PureComponent} from 'react';
-import {View, StyleProp, StyleSheet} from 'react-native';
+import {
+  View,
+  StyleProp,
+  TouchableWithoutFeedback,
+  StyleSheet,
+  GestureResponderEvent,
+} from 'react-native';
 import theme from '../utils/Theme';
 import {Text} from '../';
 import RNSlider from 'react-native-slider';
@@ -40,11 +46,35 @@ export default class Slider extends PureComponent<IProps, IState> {
 
   state = {
     showTooltip: false,
-    value: this.props.value || (this.props.existingValue
-      ? this.props.existingValue - this.props.minimum
-      : 0),
+    value:
+      this.props.value ||
+      (this.props.existingValue
+        ? this.props.existingValue - this.props.minimum
+        : 0),
     componentWidth: 0,
     textWidth: 0,
+  };
+
+  handleSliderTap = (e: GestureResponderEvent) => {
+    e.persist();
+    const {minimum, maximum, onValueChange} = this.props;
+    const {componentWidth} = this.state;
+
+    // Ensure that `value` is within the bounds of the min/max values.
+    let value = Math.round(
+      (e.nativeEvent.locationX * maximum) / componentWidth,
+    );
+    if (value < minimum) {
+      value = minimum;
+    } else if (value > maximum) {
+      value = maximum;
+    }
+
+    if (!isNaN(value)) {
+      this.setState({value}, () => {
+        onValueChange(value);
+      });
+    }
   };
 
   render() {
@@ -100,26 +130,30 @@ export default class Slider extends PureComponent<IProps, IState> {
             let {width} = event.nativeEvent.layout;
             this.setState({componentWidth: width});
           }}>
-          <RNSlider
-            value={this.props.value || this.state.value}
-            minimumValue={0}
-            maximumValue={maximum - minimum}
-            minimumTrackTintColor={tintColor?tintColor:theme.colors.primary}
-            maximumTrackTintColor={'rgb(224, 247, 247)'}
-            step={step}
-            thumbStyle={[thumbStyle, {width: thumbWidth}]}
-            trackStyle={[styles.trackStyle, trackStyle]}
-            onValueChange={(value: number) => {
-              this.setState({value: value});
-              onValueChange(value + minimum);
-            }}
-            onSlidingStart={() => {
-              this.setState({showTooltip: true});
-            }}
-            onSlidingComplete={() => {
-              this.setState({showTooltip: false});
-            }}
-          />
+          <TouchableWithoutFeedback onPress={this.handleSliderTap}>
+            <RNSlider
+              value={this.props.value || this.state.value}
+              minimumValue={0}
+              maximumValue={maximum - minimum}
+              minimumTrackTintColor={
+                tintColor ? tintColor : theme.colors.primary
+              }
+              maximumTrackTintColor={'rgb(224, 247, 247)'}
+              step={step}
+              thumbStyle={[thumbStyle, {width: thumbWidth}]}
+              trackStyle={[styles.trackStyle, trackStyle]}
+              onValueChange={(value: number) => {
+                this.setState({value: value});
+                onValueChange(value + minimum);
+              }}
+              onSlidingStart={() => {
+                this.setState({showTooltip: true});
+              }}
+              onSlidingComplete={() => {
+                this.setState({showTooltip: false});
+              }}
+            />
+          </TouchableWithoutFeedback>
           <View
             pointerEvents={'none'}
             onLayout={event => {
