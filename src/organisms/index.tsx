@@ -1,4 +1,4 @@
 import BottomSheetAndroid from './BottomSheetAndroid';
-import DropdownRow from './DropdownRow';
+import AccordionRow from './AccordionRow';
 
-export {BottomSheetAndroid, DropdownRow};
+export {BottomSheetAndroid, AccordionRow};
