@@ -1,12 +1,25 @@
 import React from 'react';
-import {ImageURISource, ViewStyle, FlatList} from 'react-native';
+import {ImageURISource, ViewStyle, FlatList, ImageStyle, TextStyle} from 'react-native';
 // import {FlatList} from 'react-native-gesture-handler';
 import {AccordionRow} from '..';
 
 interface IProps {
-  list: {image?: ImageURISource; name: string; description: string}[];
+  list: {
+    image?: ImageURISource;
+    name: string;
+    description: string;
+    iconStyle?: ImageStyle;
+    titleStyle?: TextStyle;
+    descriptionStyle?: TextStyle;
+    arrowStyle?: ImageStyle;
+    separatorStyle?: ViewStyle;
+    onOpen?: () => void;
+    onClose?: () => void;
+  }[];
   style?: ViewStyle;
   disableAutoClose?: boolean;
+  rowProps: {
+  }
 }
 
 interface IState {}
@@ -19,6 +32,13 @@ class Accordion extends React.Component<IProps, IState> {
       image?: ImageURISource | undefined;
       name: string;
       description: string;
+      iconStyle?: ImageStyle;
+      titleStyle?: TextStyle;
+      descriptionStyle?: TextStyle;
+      arrowStyle?: ImageStyle;
+      separatorStyle?: ViewStyle;
+      onOpen?: () => void;
+      onClose?: () => void;
     },
     index: number,
   ) {
@@ -37,6 +57,16 @@ class Accordion extends React.Component<IProps, IState> {
             this.dropdowns.push({index, view: ref});
           }
         }}
+        iconStyle={item.iconStyle}
+        titleStyle={item.titleStyle}
+        descriptionStyle={item.descriptionStyle}
+        arrowStyle={item.arrowStyle}
+        separatorStyle={item.separatorStyle}
+        onClose={() => {
+          if (item.onClose) {
+            item.onClose();
+          }
+        }}
         onOpen={() => {
           if (!this.props.disableAutoClose) {
             this.dropdowns.forEach(dropdown => {
@@ -44,6 +74,9 @@ class Accordion extends React.Component<IProps, IState> {
                 dropdown.view.changeStatus(false);
               }
             });
+          }
+          if (item.onOpen) {
+            item.onOpen();
           }
         }}
         name={item.name}
@@ -67,4 +100,4 @@ class Accordion extends React.Component<IProps, IState> {
   };
 }
 
-export default DropdownList;
+export default Accordion;
