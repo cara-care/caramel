@@ -23,6 +23,7 @@ interface IProps {
   }[];
   style?: ViewStyle;
   disableAutoClose?: boolean;
+  animate?: boolean;
 }
 
 interface IState {}
@@ -85,6 +86,7 @@ class Accordion extends React.Component<IProps, IState> {
         name={item.name}
         description={item.description}
         image={item.image}
+        animate={this.props.animate}
       />
     );
   }

@@ -149,6 +149,7 @@ storiesOf('Dropdown', module)
   .add('Dropdown List', () => (
     <View style={{width: '100%'}}>
       <Accordion
+        animate
         list={[
           {name: 'Name', description: 'description', image: undefined},
           {name: 'Name2', description: 'Description2', image: undefined},
