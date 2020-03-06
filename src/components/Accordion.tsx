@@ -18,8 +18,6 @@ interface IProps {
   }[];
   style?: ViewStyle;
   disableAutoClose?: boolean;
-  rowProps: {
-  }
 }
 
 interface IState {}
