@@ -9,6 +9,7 @@ import {
   ImageStyle,
   TextStyle,
   ViewStyle,
+  LayoutAnimation,
 } from 'react-native';
 import theme from '../utils/Theme';
 
@@ -23,6 +24,7 @@ interface IProps {
   separatorStyle?: ViewStyle;
   onOpen?: () => void;
   onClose?: () => void;
+  animate?: boolean;
 }
 
 interface IState {
@@ -36,6 +38,9 @@ class AccordionRow extends React.Component<IProps, IState> {
   state = {isOpen: false};
 
   changeStatus(isOpen: boolean) {
+    if (this.props.animate) {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    }
     this.setState({isOpen});
   }
 
@@ -56,7 +61,7 @@ class AccordionRow extends React.Component<IProps, IState> {
     const {isOpen} = this.state;
 
     return (
-      <View>
+      <View style={styles.root}>
         <TouchableOpacity
           onPress={() => {
             if (!isOpen === true && !!onOpen) {
@@ -98,6 +103,9 @@ class AccordionRow extends React.Component<IProps, IState> {
 export default AccordionRow;
 
 const styles = StyleSheet.create({
+  root: {
+    overflow: 'hidden',
+  },
   description: {
     marginLeft: 50,
     marginRight: 20,
