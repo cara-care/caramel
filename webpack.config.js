@@ -1,4 +1,4 @@
-export default ({ config }) => {
+export default ({config}) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     use: [

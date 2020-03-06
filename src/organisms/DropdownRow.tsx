@@ -30,8 +30,8 @@ interface IState {
 }
 
 class DropdownRow extends React.Component<IProps, IState> {
-  private arrowDown: ImageURISource = require('../images/iconArrowDown.png');
-  private arrowUp: ImageURISource = require('../images/iconArrowUp.png');
+  private arrowDown: ImageURISource = require('../../images/iconArrowDown.png');
+  private arrowUp: ImageURISource = require('../../images/iconArrowUp.png');
 
   state = {isOpen: false};
 

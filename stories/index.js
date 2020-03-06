@@ -43,7 +43,7 @@ storiesOf('Button', module)
       onPress={() => Alert.alert('I really do!')}
       textStyle={{fontFamily: theme.typography.medium}}
       text={'I have icons'}
-      rightIcon={require('../src/images/iconArrowDown.png')}
+      rightIcon={require('../images/iconArrowDown.png')}
     />
   ));
 
