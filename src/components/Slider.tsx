@@ -40,9 +40,11 @@ export default class Slider extends PureComponent<IProps, IState> {
 
   state = {
     showTooltip: false,
-    value: this.props.value || (this.props.existingValue
-      ? this.props.existingValue - this.props.minimum
-      : 0),
+    value:
+      this.props.value ||
+      (this.props.existingValue
+        ? this.props.existingValue - this.props.minimum
+        : 0),
     componentWidth: 0,
     textWidth: 0,
   };
@@ -101,10 +103,10 @@ export default class Slider extends PureComponent<IProps, IState> {
             this.setState({componentWidth: width});
           }}>
           <RNSlider
-            value={this.props.value || this.state.value}
+            value={this.props.value || this.state.value}
             minimumValue={0}
             maximumValue={maximum - minimum}
-            minimumTrackTintColor={tintColor?tintColor:theme.colors.primary}
+            minimumTrackTintColor={tintColor ? tintColor : theme.colors.primary}
             maximumTrackTintColor={'rgb(224, 247, 247)'}
             step={step}
             thumbStyle={[thumbStyle, {width: thumbWidth}]}
