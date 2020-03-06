@@ -172,9 +172,9 @@ export default class ColorText extends Component<IProps, IState> {
     let colorText = this.props.children ? this.props.children.toString() : '';
 
     let structuredText: Structured[] = this.getStructuredColor(colorText);
-    // this.getStructuredBold(structuredText);
-    // this.getStructuredItalic(structuredText);
-    // this.getStructuredUnderline(structuredText);
+    this.getStructuredBold(structuredText);
+    this.getStructuredItalic(structuredText);
+    this.getStructuredUnderline(structuredText);
     this.getStructuredLink(structuredText);
 
     return (
