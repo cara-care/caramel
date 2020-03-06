@@ -29,7 +29,7 @@ interface IState {
   isOpen: boolean;
 }
 
-class DropdownRow extends React.Component<IProps, IState> {
+class AccordionRow extends React.Component<IProps, IState> {
   private arrowDown: ImageURISource = require('../../images/iconArrowDown.png');
   private arrowUp: ImageURISource = require('../../images/iconArrowUp.png');
 
@@ -95,7 +95,7 @@ class DropdownRow extends React.Component<IProps, IState> {
   };
 }
 
-export default DropdownRow;
+export default AccordionRow;
 
 const styles = StyleSheet.create({
   description: {

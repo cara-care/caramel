@@ -1,7 +1,7 @@
 import React from 'react';
 import {ImageURISource, ViewStyle, FlatList} from 'react-native';
 // import {FlatList} from 'react-native-gesture-handler';
-import {DropdownRow} from '..';
+import {AccordionRow} from '..';
 
 interface IProps {
   list: {image?: ImageURISource; name: string; description: string}[];
@@ -11,8 +11,8 @@ interface IProps {
 
 interface IState {}
 
-class DropdownList extends React.Component<IProps, IState> {
-  private dropdowns: {index: number; view: DropdownRow}[] = [];
+class Accordion extends React.Component<IProps, IState> {
+  private dropdowns: {index: number; view: AccordionRow}[] = [];
 
   renderRow(
     item: {
@@ -23,7 +23,7 @@ class DropdownList extends React.Component<IProps, IState> {
     index: number,
   ) {
     return (
-      <DropdownRow
+      <AccordionRow
         ref={ref => {
           /**
            * if the list was already filled and the prop changed
