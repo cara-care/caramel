@@ -8,5 +8,6 @@ import BottomActionSheet from './components/BottomActionSheet';
 import Accordion from './components/Accordion';
 import Container from './components/Container';
 import IconButton from './components/IconButton';
+import CoverScrollView from './components/CoverScrollView';
 
-export {Text, ColorText, AnimatedProgressBar, Slider, BottomActionSheet, Container, OneLineScore, AccordionRow, Accordion, IconButton};
+export {Text, ColorText, AnimatedProgressBar, Slider, BottomActionSheet, Container, OneLineScore, AccordionRow, Accordion, IconButton, CoverScrollView};

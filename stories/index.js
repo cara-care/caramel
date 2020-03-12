@@ -15,6 +15,7 @@ import {
   Accordion,
   DropdownRow,
   IconButton,
+  CoverScrollView,
 } from '../src/';
 import theme from '../src/utils/Theme';
 
@@ -160,6 +161,56 @@ storiesOf('Dropdown', module)
   .add('Dropdown Row', () => (
     <View style={{width: '100%'}}>
       <DropdownRow name={'name'} description={'description'} />
+    </View>
+  ));
+
+storiesOf('CoverView', module)
+  .addDecorator(getStory => <View>{getStory()}</View>)
+  .add('CoverView', () => (
+    <View style={{width: '100%'}}>
+      <CoverScrollView>
+        <Text style={{color: 'black'}}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida
+          aliquet fringilla. Duis vestibulum, felis eget interdum auctor, mauris
+          mi feugiat purus, at venenatis elit nisi quis turpis. Etiam finibus ut
+          mi volutpat sagittis. Cras volutpat malesuada eleifend. In cursus
+          risus nec maximus dapibus. Nulla urna eros, elementum at magna
+          commodo, tempus auctor justo. Aenean nulla nisi, lacinia faucibus nisl
+          ut, pretium facilisis nisl. Nam tincidunt tincidunt justo. Nulla id
+          dictum purus. Morbi hendrerit commodo sapien. Nulla euismod vulputate
+          odio at vehicula. Pellentesque eu sollicitudin ex, ac eleifend neque.
+          Sed quis ante congue, elementum leo vel, interdum velit. Curabitur
+          condimentum non velit nec maximus. Nulla faucibus, elit sit amet
+          accumsan tempus, enim libero ultrices erat, sit amet molestie quam est
+          quis est. Donec eget aliquet purus. Quisque sed ex nec metus commodo
+          tristique. Orci varius natoque penatibus et magnis dis parturient
+          montes, nascetur ridiculus mus. Maecenas aliquam nisi id egestas
+          posuere. Cras consectetur at urna nec cursus. Cras orci eros, varius
+          non metus id, volutpat ultricies libero. Cras pellentesque diam
+          consequat, faucibus magna et, auctor nisi. Donec sit amet varius
+          mauris, non malesuada leo. Sed accumsan nisl eros, vitae efficitur
+          quam ultrices a. Nulla auctor vulputate quam in pretium. Nullam eget
+          nisi at ipsum vehicula facilisis. Sed eu venenatis libero. Ut porta
+          cursus efficitur. Mauris congue enim eget turpis blandit, id ultricies
+          nisi congue. Maecenas quis ligula imperdiet, fringilla magna nec,
+          dignissim nisl. Suspendisse convallis consectetur bibendum. Maecenas
+          pulvinar eget metus vel pellentesque. Aliquam arcu arcu, tristique et
+          accumsan vel, aliquet quis orci. Mauris hendrerit, elit et finibus
+          elementum, risus elit dictum mi, sit amet malesuada tortor erat at
+          tellus. Vestibulum et velit tempus, tristique lacus quis, consequat
+          elit. Praesent faucibus felis vel enim sodales, non cursus tellus
+          volutpat. Morbi eu diam convallis, porttitor lacus vel, vulputate
+          turpis. Etiam luctus est a lacus sodales feugiat. Aliquam ultrices
+          tempor lectus ac volutpat. Integer volutpat a justo vel sollicitudin.
+          Aenean risus tellus, aliquet vel tortor sit amet, fermentum malesuada
+          nunc. Fusce maximus odio a elit hendrerit lobortis. Cras faucibus
+          mauris id placerat eleifend. Donec mattis metus sit amet orci cursus,
+          sed rhoncus augue porttitor. Fusce placerat odio id faucibus
+          malesuada. Sed vestibulum felis a risus mollis egestas. Nullam a
+          porttitor tellus, eget sodales metus. Orci varius natoque penatibus et
+          magnis dis parturient montes, nascetur ridiculus mus.
+        </Text>
+      </CoverScrollView>
     </View>
   ));
 
