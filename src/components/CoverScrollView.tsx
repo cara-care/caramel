@@ -1,21 +1,11 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {
-  Text,
-  TouchableOpacity,
   View,
-  Image,
   StyleSheet,
-  ImageURISource,
   ImageStyle,
-  TextStyle,
   ViewStyle,
-  LayoutAnimation,
   Animated,
-  Dimensions,
-  Platform,
-  StatusBar,
 } from 'react-native';
-import theme from '../utils/Theme';
 import {CoverImage} from '../organisms';
 import {MAX_HEADER_HEIGHT} from '../utils/Calculations';
 

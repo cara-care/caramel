@@ -1,6 +1,5 @@
 import React from 'react';
 import {Image, View, StyleSheet, Animated, ImageSourcePropType, ImageStyle, ViewStyle} from 'react-native';
-// import Animated from 'react-native-reanimated';
 import theme from '../utils/Theme';
 import {MAX_HEADER_HEIGHT, HEADER_DELTA} from '../utils/Calculations';
 
