@@ -1,7 +1,7 @@
 {
   "name": "@cara-care/caramel",
   "title": "Caramel",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Cross-platform UI component library for React Native.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
