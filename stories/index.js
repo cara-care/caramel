@@ -13,7 +13,7 @@ import {
   BottomActionSheet,
   OneLineScore,
   Accordion,
-  DropdownRow,
+  AccordionRow,
   IconButton,
   CoverScrollView,
 } from '../src/';
@@ -160,7 +160,7 @@ storiesOf('Dropdown', module)
   ))
   .add('Dropdown Row', () => (
     <View style={{width: '100%'}}>
-      <DropdownRow name={'name'} description={'description'} />
+      <AccordionRow name={'name'} description={'description'} />
     </View>
   ));
 
