@@ -8,6 +8,7 @@ interface IProps {
   boldTextStyle?: TextStyle;
   italicTextStyle?: TextStyle;
   underlineTextStyle?: TextStyle;
+  strikethroughTextStyle?: TextStyle;
   linkTextStyle?: TextStyle;
   style?: ViewStyle;
   regularColor?: string;
@@ -20,6 +21,7 @@ enum FormatType {
   BOLD,
   ITALIC,
   UNDERLINE,
+  STRIKETHROUGH,
 }
 
 interface Structured {
@@ -161,6 +163,17 @@ export default class ColorText extends Component<IProps, IState> {
     );
   }
 
+  getStructuredStrikethrough(structuredText: Structured[]) {
+    const loopText = structuredText.concat([]);
+    const underlineRegExp = new RegExp('\\[s](.*?)\\[\\/s]');
+    this.getFormatted(
+      loopText,
+      structuredText,
+      underlineRegExp,
+      FormatType.STRIKETHROUGH,
+    );
+  }
+
   getStructuredLink(structuredText: Structured[]) {
     const loopText = structuredText.concat([]);
     const colorRegExp = new RegExp('\\[link](.*?)\\[\\/link]');
@@ -175,6 +188,7 @@ export default class ColorText extends Component<IProps, IState> {
     this.getStructuredBold(structuredText);
     this.getStructuredItalic(structuredText);
     this.getStructuredUnderline(structuredText);
+    this.getStructuredStrikethrough(structuredText);
     this.getStructuredLink(structuredText);
 
     return (
@@ -199,7 +213,7 @@ export default class ColorText extends Component<IProps, IState> {
                     textDecorationLine:
                       data.formatting === FormatType.UNDERLINE
                         ? 'underline'
-                        : 'none',
+                        : (data.formatting === FormatType.STRIKETHROUGH ? 'line-through' : 'none'),
                   },
                   styles.regularText,
                   !data.color
@@ -213,6 +227,9 @@ export default class ColorText extends Component<IProps, IState> {
                     : undefined,
                   data.formatting === FormatType.UNDERLINE
                     ? this.props.underlineTextStyle
+                    : undefined,
+                  data.formatting === FormatType.STRIKETHROUGH
+                    ? this.props.strikethroughTextStyle
                     : undefined,
                     !!data.pressEvent ? this.props.linkTextStyle : undefined,
                 ]}>

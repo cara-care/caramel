@@ -94,6 +94,11 @@ storiesOf('ColorText', module)
       [u]Hello this is a very colorful text![/u]
     </ColorText>
   ))
+  .add('Strikethrough', () => (
+    <ColorText style={{color: theme.colors.dusk}}>
+      [s]Hello this is a very colorful text![/s]
+    </ColorText>
+  ))
   .add('Link', () => (
     <ColorText
       style={{color: theme.colors.dusk}}
