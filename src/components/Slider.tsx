@@ -20,6 +20,7 @@ interface IProps {
   containerStyle?: StyleProp<any>;
   sliderContainerStyle?: StyleProp<any>;
   timeContainerStyle?: StyleProp<any>;
+  sliderStyle?: StyleProp<any>;
   minimum: number;
   maximum: number;
   onValueChange: (value: number) => void;
@@ -93,6 +94,7 @@ export default class Slider extends PureComponent<IProps, IState> {
       containerStyle,
       sliderContainerStyle,
       timeContainerStyle,
+      sliderStyle,
     } = this.props;
     const division = maximum - minimum;
     const textLeftCalculation = thumbWidth
@@ -140,6 +142,7 @@ export default class Slider extends PureComponent<IProps, IState> {
           <TouchableWithoutFeedback onPress={this.handleSliderTap}>
             <RNSlider
               value={this.props.value || this.state.value}
+              style={sliderStyle}
               minimumValue={0}
               maximumValue={maximum - minimum}
               minimumTrackTintColor={
