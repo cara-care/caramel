@@ -17,6 +17,9 @@ interface IProps {
   tooltipStyle?: StyleProp<any>;
   leftTextStyle?: StyleProp<any>;
   rightTextStyle?: StyleProp<any>;
+  containerStyle?: StyleProp<any>;
+  sliderContainerStyle?: StyleProp<any>;
+  timeContainerStyle?: StyleProp<any>;
   minimum: number;
   maximum: number;
   onValueChange: (value: number) => void;
@@ -87,6 +90,9 @@ export default class Slider extends PureComponent<IProps, IState> {
       showTooltipOnSlide,
       leftTextStyle,
       rightTextStyle,
+      containerStyle,
+      sliderContainerStyle,
+      timeContainerStyle,
     } = this.props;
     const division = maximum - minimum;
     const textLeftCalculation = thumbWidth
@@ -120,12 +126,13 @@ export default class Slider extends PureComponent<IProps, IState> {
       tintColor,
     } = this.props;
     return (
-      <View>
-        <View style={styles.topTextsContainer}>
+      <View style={containerStyle}>
+        <View style={[styles.topTextsContainer, timeContainerStyle]}>
           {leftTopText}
           {rightTopText}
         </View>
         <View
+          style={sliderContainerStyle}
           onLayout={event => {
             let {width} = event.nativeEvent.layout;
             this.setState({componentWidth: width});
