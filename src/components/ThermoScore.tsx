@@ -87,7 +87,7 @@ export default class ThermoScore extends Component<IProps, IState> {
             <View
               style={[
                 {
-                  height: secondPercentage.toString() + '%',
+                  height: (secondPercentage / 2).toString() + '%',
 
                   top: '50%',
                   shadowColor: secondColor || theme.colors.carrotRed,
