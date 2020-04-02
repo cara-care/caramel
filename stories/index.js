@@ -11,7 +11,7 @@ import {
   AnimatedProgressBar,
   ColorText,
   BottomActionSheet,
-  OneLineScore,
+  ThermoScore,
   Accordion,
   AccordionRow,
   IconButton,
@@ -121,8 +121,8 @@ storiesOf('ProgressBar', module)
       percentage={50}
     />
   ))
-  .add('One Line Score', () => (
-    <OneLineScore middleCount={2} percentage={60} color={'red'} />
+  .add('ThermoScore', () => (
+    <ThermoScore middleCount={2} firstPercentage={60} firstColor={'red'} />
   ));
 
 storiesOf('BottomActionSheet', module)
