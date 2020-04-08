@@ -165,7 +165,11 @@ storiesOf('Dropdown', module)
   ))
   .add('Dropdown Row', () => (
     <View style={{width: '100%'}}>
-      <AccordionRow name={'name'} description={'description'} />
+      <AccordionRow
+        name={'name'}
+        description={'description'}
+        image={require('../images/iconArrowDown.png')}
+      />
     </View>
   ));
 

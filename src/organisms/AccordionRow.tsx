@@ -22,6 +22,7 @@ interface IProps {
   descriptionStyle?: TextStyle;
   arrowStyle?: ImageStyle;
   separatorStyle?: ViewStyle;
+  rowContainerStyle?: ViewStyle;
   onOpen?: () => void;
   onClose?: () => void;
   animate?: boolean;
@@ -56,6 +57,7 @@ class AccordionRow extends React.Component<IProps, IState> {
       separatorStyle,
       onOpen,
       onClose,
+      rowContainerStyle,
     } = this.props;
 
     const {isOpen} = this.state;
@@ -72,7 +74,7 @@ class AccordionRow extends React.Component<IProps, IState> {
 
             this.setState({isOpen: !isOpen});
           }}>
-          <View style={styles.contentContainer}>
+          <View style={[styles.contentContainer, rowContainerStyle]}>
             <View style={styles.imageTextContainer}>
               {!!image && (
                 <Image style={[styles.icon, iconStyle]} source={image} />
@@ -123,7 +125,6 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: theme.colors.dusk2,
     opacity: 0.2,
-    marginLeft: 50,
   },
   icon: {
     height: 24,
