@@ -80,10 +80,10 @@ class AccordionRow extends React.Component<IProps, IState> {
                 <Image style={[styles.icon, iconStyle]} source={image} />
               )}
 
-              <Text style={[titleStyle, styles.dropdownName]}>{name}</Text>
+              <Text style={[styles.dropdownName, titleStyle]}>{name}</Text>
             </View>
             <Image
-              style={[arrowStyle, styles.arrow]}
+              style={[styles.arrow, arrowStyle]}
               source={isOpen ? this.arrowUp : this.arrowDown}
             />
           </View>
@@ -96,7 +96,7 @@ class AccordionRow extends React.Component<IProps, IState> {
           ]}>
           {description}
         </Text>
-        <View style={[separatorStyle, styles.separator]} />
+        <View style={[styles.separator, separatorStyle]} />
       </View>
     );
   };
