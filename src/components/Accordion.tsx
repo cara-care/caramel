@@ -18,6 +18,7 @@ interface IProps {
     descriptionStyle?: TextStyle;
     arrowStyle?: ImageStyle;
     separatorStyle?: ViewStyle;
+    rowContainerStyle?: ViewStyle;
     onOpen?: () => void;
     onClose?: () => void;
   }[];
@@ -41,6 +42,7 @@ class Accordion extends React.Component<IProps, IState> {
       descriptionStyle?: TextStyle;
       arrowStyle?: ImageStyle;
       separatorStyle?: ViewStyle;
+      rowContainerStyle?: ViewStyle;
       onOpen?: () => void;
       onClose?: () => void;
     },
@@ -66,6 +68,7 @@ class Accordion extends React.Component<IProps, IState> {
         descriptionStyle={item.descriptionStyle}
         arrowStyle={item.arrowStyle}
         separatorStyle={item.separatorStyle}
+        rowContainerStyle={item.rowContainerStyle}
         onClose={() => {
           if (item.onClose) {
             item.onClose();
