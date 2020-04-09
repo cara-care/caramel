@@ -99,7 +99,7 @@ class Accordion extends React.Component<IProps, IState> {
 
     return (
       <FlatList
-        keyExtractor={item => item.name}
+        keyExtractor={item => 'accordion-' + item.name}
         style={style}
         data={list}
         renderItem={({item, index}) => this.renderRow(item, index)}
