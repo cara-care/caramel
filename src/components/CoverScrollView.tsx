@@ -25,7 +25,7 @@ class CoverScrollView extends React.Component<IProps, IState> {
   private onScroll = (contentOffset: {
     x: Animated.Value;
     y: Animated.Value;
-  }) => Animated.event([{nativeEvent: {contentOffset}}]);
+  }) => Animated.event([{nativeEvent: {contentOffset}}], {useNativeDriver: false});
 
   render = () => {
     const { style, scrollViewStyle, imageStyle, imageContainerStyle} = this.props;

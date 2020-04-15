@@ -103,7 +103,7 @@ class BottomSheetAndroid extends Component<IProps, any> {
         closeOnDragDown ? closeOnDragDown : false,
       onPanResponderMove: (e, gestureState) => {
         if (gestureState.dy > 0) {
-          Animated.event([null, {dy: pan.y, }])(e, gestureState);
+          Animated.event([null, {dy: pan.y, }], {useNativeDriver: false})(e, gestureState);
         }
       },
       onPanResponderRelease: (e, gestureState) => {
