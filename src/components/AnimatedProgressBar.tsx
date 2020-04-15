@@ -40,6 +40,7 @@ const AnimatedProgressBar = (props: OwnProps) => {
 
     if (widthPercentage !== 0) {
       let animate = Animated.spring(currentWidthAnim, {
+        useNativeDriver: false,
         toValue: widthPercentage,
       });
       animate.start();

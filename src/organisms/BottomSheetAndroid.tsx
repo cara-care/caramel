@@ -72,11 +72,13 @@ class BottomSheetAndroid extends Component<IProps, any> {
     if (visible) {
       this.setState({modalVisible: visible});
       Animated.timing(animatedHeight, {
+        useNativeDriver: false,
         toValue: this.height!,
         duration,
       }).start();
     } else {
       Animated.timing(animatedHeight, {
+        useNativeDriver: false,
         toValue: minClosingHeight!,
         duration,
       }).start(() => {
@@ -101,14 +103,15 @@ class BottomSheetAndroid extends Component<IProps, any> {
         closeOnDragDown ? closeOnDragDown : false,
       onPanResponderMove: (e, gestureState) => {
         if (gestureState.dy > 0) {
-          Animated.event([null, {dy: pan.y}])(e, gestureState);
+          Animated.event([null, {dy: pan.y, }])(e, gestureState);
         }
       },
       onPanResponderRelease: (e, gestureState) => {
         if (this.height! / 4 - gestureState.dy < 0) {
           this.setModalVisible(false);
         } else {
-          Animated.spring(pan, {toValue: {x: 0, y: 0}}).start();
+          Animated.spring(pan, {toValue: {x: 0, y: 0},
+            useNativeDriver: false}).start();
         }
       },
     });
