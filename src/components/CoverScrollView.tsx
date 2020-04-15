@@ -5,6 +5,7 @@ import {
   ImageStyle,
   ViewStyle,
   Animated,
+  ImageSourcePropType,
 } from 'react-native';
 import {CoverImage} from '../organisms';
 import {MAX_HEADER_HEIGHT} from '../utils/Calculations';
@@ -14,6 +15,7 @@ interface IProps {
   scrollViewStyle?: ViewStyle;
   imageStyle?: ImageStyle;
   imageContainerStyle?: ViewStyle;
+  image: ImageSourcePropType;
 }
 
 interface IState {
@@ -28,11 +30,11 @@ class CoverScrollView extends React.Component<IProps, IState> {
   }) => Animated.event([{nativeEvent: {contentOffset}}], {useNativeDriver: false});
 
   render = () => {
-    const { style, scrollViewStyle, imageStyle, imageContainerStyle} = this.props;
+    const {style, scrollViewStyle, imageStyle, imageContainerStyle, image} = this.props;
 
     return (
       <View style={style}>
-        <CoverImage image={require('../../images/netherlands.jpg')} {...{y: this.y}} imageContainerStyle={imageContainerStyle} imageStyle={imageStyle} />
+        <CoverImage image={image} {...{y: this.y}} imageContainerStyle={imageContainerStyle} imageStyle={imageStyle} />
         <Animated.ScrollView
             showsVerticalScrollIndicator={false}
             style={[styles.scrollView, scrollViewStyle]}

@@ -177,7 +177,7 @@ storiesOf('CoverView', module)
   .addDecorator(getStory => <View>{getStory()}</View>)
   .add('CoverView', () => (
     <View style={{width: '100%'}}>
-      <CoverScrollView>
+      <CoverScrollView image={require('../images/netherlands.jpg')}>
         <Text style={{color: 'black'}}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed gravida
           aliquet fringilla. Duis vestibulum, felis eget interdum auctor, mauris
