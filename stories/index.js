@@ -150,9 +150,9 @@ storiesOf('BottomActionSheet', module)
     </View>
   ));
 
-storiesOf('Dropdown', module)
+storiesOf('Accordion', module)
   .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
-  .add('Dropdown List', () => (
+  .add('Accordion List', () => (
     <View style={{width: '100%'}}>
       <Accordion
         animate
@@ -163,7 +163,7 @@ storiesOf('Dropdown', module)
       />
     </View>
   ))
-  .add('Dropdown Row', () => (
+  .add('Accordion Row', () => (
     <View style={{width: '100%'}}>
       <AccordionRow
         name={'name'}
