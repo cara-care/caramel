@@ -65,18 +65,19 @@ list: {
   </div>
   <h4>Example</h4>
   <pre class="codeArea">
-    list: {
-      image?: ImageURISource;
-      name: string;
-      description: string;
-      iconStyle?: ImageStyle;
-      titleStyle?: TextStyle;
-      descriptionStyle?: TextStyle;
-      arrowStyle?: ImageStyle;
-      separatorStyle?: ViewStyle;
-      rowContainerStyle?: ViewStyle;
-      onOpen?: () => void;
-      onClose?: () => void;
-    }[]
+    &lt;Accordion
+      list={[
+        {
+          image: require('./caramel.png'),
+          name: 'Accordion1',
+          description: 'Lorem ipsum dolor sit amet.',
+        },
+        {
+          image: require('./caramel.png'),
+          name: 'Accordion2',
+          description: 'Lorem ipsum dolor sit amet.',
+        },
+      ]}
+      animate /&gt;
   </pre>
 </div>
