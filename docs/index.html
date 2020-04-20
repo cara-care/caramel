@@ -2,59 +2,119 @@
 layout: default
 ---
 
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
 <div>
-  <!-- <div style="flex-direction: row"><img style="flex: 1;" width="300" src="assets/Accordion.gif" />
-    <div style="flex: 1;">
-      <div class="table-container" role="table" aria-label="Destinations">
-        <div class="flex-table header" role="rowgroup">
-          <div class="flex-row first" role="columnheader">Country</div>
-          <div class="flex-row" role="columnheader">Events</div>
-          <div class="flex-row" role="columnheader">Time</div>
-          <div class="flex-row" role="columnheader">Fees</div>
+  <h3>Accordion</h3>
+  <div class="imageTableContainer">
+    <img style="max-width: 300px; margin: 24px;" src="assets/Accordion.gif" />
+    <div class="divTable">
+      <div class="divTableBody">
+        <div class="divTableRow divTableHeading">
+          <div class="divTableCell">Property</div>
+          <div class="divTableCell">Type</div>
+          <div class="divTableCell">Default</div>
+          <div class="divTableCell">Description</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">
+            <pre class="codeArea">
+list: {
+  image?: ImageURISource;
+  name: string;
+  description: string;
+  iconStyle?: ImageStyle;
+  titleStyle?: TextStyle;
+  descriptionStyle?: TextStyle;
+  arrowStyle?: ImageStyle;
+  separatorStyle?: ViewStyle;
+  rowContainerStyle?: ViewStyle;
+  onOpen?: () => void;
+  onClose?: () => void;
+}[]
+            </pre>
+          </div>
+          <div class="divTableCell">Array</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The list array to render the AccordionRow components. You can add events and
+            styles per row.</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">
+            style
+          </div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the FlatList parent</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">
+            disableAutoClose
+          </div>
+          <div class="divTableCell">boolean | undefined</div>
+          <div class="divTableCell">false</div>
+          <div class="divTableCell">Disables the rows closing themselves automatically when another row is
+            opened within the same Accordion.</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">
+            animate
+          </div>
+          <div class="divTableCell">boolean | undefined</div>
+          <div class="divTableCell">false</div>
+          <div class="divTableCell">Animates the opening and closing events of the rows.</div>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 </div>
 
-<!-- <style>
+<style>
+  @media only screen and (max-width: 768px) {
+    .imageTableContainer {
+      flex-direction: column;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .imageTableContainer {
+      flex-direction: row;
+    }
+  }
+
+  .imageTableContainer {
+    display: flex;
+  }
+
+  .codeArea {
+    background-color: #f7f7f7;
+    padding: 10px;
+  }
+
   .divTable {
-    /* display: table; */
-    width: 100%;
+    display: table;
+    flex: 1;
+    margin: 24px;
+    overflow: scroll;
   }
 
   .divTableRow {
-    /* display: table-row; */
-    width: 100%;
-    flex-direction: row;
+    display: table-row;
   }
 
-  .divTableHeading {
-    background-color: #EEE;
-    display: table-header-group;
-  }
-
-  .divTableCell,
-  .divTableHead {
-    flex: 1;
+  .divTableCell {
     border: 1px solid #999999;
-    /* display: table-cell; */
-    padding: 3px 10px;
+    display: table-cell;
+    padding: 10px;
+    vertical-align: middle;
   }
 
   .divTableHeading {
-    background-color: #EEE;
-    /* display: table-header-group; */
     font-weight: bold;
-  }
-
-  .divTableFoot {
-    background-color: #EEE;
-    display: table-footer-group;
-    font-weight: bold;
+    text-align: center;
   }
 
   .divTableBody {
-    /* display: table-row-group; */
+    display: table-row-group;
   }
-</style> -->
+</style>
