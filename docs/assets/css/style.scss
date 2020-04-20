@@ -3,10 +3,11 @@
 
 @import "{{ site.theme }}";
 
-@media screen and (min-width: 64em)
-.main-content {
-    /* max-width: 64rem; */
-    padding: 2rem 7rem !important;
-    /* margin: 0 auto; */
-    font-size: 1.2rem;
+@media screen and (min-width: 64em) {
+  .main-content {
+      /* max-width: 64rem; */
+      padding: 2rem 7rem !important;
+      /* margin: 0 auto; */
+      font-size: 1.2rem;
+  }
 }
