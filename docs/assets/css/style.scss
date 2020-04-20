@@ -11,3 +11,51 @@
       font-size: 1.1rem;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .imageTableContainer {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .imageTableContainer {
+    flex-direction: row;
+  }
+}
+
+.imageTableContainer {
+  display: flex;
+}
+
+.codeArea {
+  background-color: #f7f7f7;
+  padding: 10px;
+}
+
+.divTable {
+  display: table;
+  flex: 1;
+  margin: 24px;
+  overflow: scroll;
+}
+
+.divTableRow {
+  display: table-row;
+}
+
+.divTableCell {
+  border: 1px solid #999999;
+  display: table-cell;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.divTableHeading {
+  font-weight: bold;
+  text-align: center;
+}
+
+.divTableBody {
+  display: table-row-group;
+}
