@@ -7,7 +7,7 @@ const StandardComponent = () => {
       <h2>Accordion</h2>
       <div className="imageTableContainer">
         <div>
-          <img style={{maxWidth: "300px", margin: "24px"}} src={require("./assets/images/Accordion.gif")} />
+          <img style={{maxWidth: "300px", margin: "24px"}} src={require("./assets/Accordion.gif")} />
         </div>
         <div className="divTable">
           <div className="divTableBody">
