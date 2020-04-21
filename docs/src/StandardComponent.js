@@ -1,4 +1,5 @@
 import React from 'react';
+import './assets/css/standardcomponent.css';
 
 const StandardComponent = () => {
   return (
@@ -6,7 +7,7 @@ const StandardComponent = () => {
       <h2>Accordion</h2>
       <div className="imageTableContainer">
         <div>
-          <img style={{maxWidth: "300px", margin: "24px"}} src="./assets/Accordion.gif" />
+          <img style={{maxWidth: "300px", margin: "24px"}} src={require("./assets/Accordion.gif")} />
         </div>
         <div className="divTable">
           <div className="divTableBody">
@@ -71,20 +72,22 @@ list: {
       </div>
       <h4>Example</h4>
       <pre className="codeArea">
-        {`&lt;Accordion
-      list={[
-          {
-            image: require('./caramel.png'),
-            name: 'Accordion1',
-            description: 'Lorem ipsum dolor sit amet.',
-          },
-          {
-            image: require('./caramel.png'),
-            name: 'Accordion2',
-            description: 'Lorem ipsum dolor sit amet.',
-          },
-        ]}
-      animate /&gt;`}
+        {
+`<Accordion
+  list={[
+      {
+        image: require('./caramel.png'),
+        name: 'Accordion1',
+        description: 'Lorem ipsum dolor sit amet.',
+      },
+      {
+        image: require('./caramel.png'),
+        name: 'Accordion2',
+        description: 'Lorem ipsum dolor sit amet.',
+      },
+    ]}
+  animate />`
+  }
   </pre>
     </div>
   );
