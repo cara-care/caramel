@@ -39,7 +39,6 @@ export default class ColorText extends Component<IProps, IState> {
     formatType?: FormatType,
     pressEvent?: [() => void | undefined],
   ) {
-    console.log('begin', JSON.stringify(structuredText));
     let eventIndex = 0;
     let extraIndex = 0;
     loopText.forEach((text, index) => {
