@@ -1,0 +1,129 @@
+<div>
+  <h2>ColorText</h2>
+  <div class="imageTableContainer">
+    <div>
+      <img style="max-width: 300px; margin: 24px;" src="assets/ColorText.gif" />
+    </div>
+    <div class="divTable">
+      <div class="divTableBody">
+        <div class="divTableRow divTableHeading">
+          <div class="divTableCell">Property</div>
+          <div class="divTableCell">Type</div>
+          <div class="divTableCell">Default</div>
+          <div class="divTableCell">Description</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">textStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The text style for the parent Text component</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">regularTextStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  fontSize: 14,
+  lineHeight: 22,
+  letterSpacing: -0.21,
+  color: 'black',
+}</pre>
+          </div>
+          <div class="divTableCell">The text style for the unformatted texts</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">coloredTextStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The text style for the colored texts</div>
+        </div>
+        <!-- -- -->
+        <div class="divTableRow">
+          <div class="divTableCell">boldTextStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  fontWeight: 'bold',
+}</pre>
+          </div>
+          <div class="divTableCell">The text style for the bold texts</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">italicTextStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">
+{
+  fontStyle: 'italic',
+}</pre>
+          </div>
+          <div class="divTableCell">The text style for the italic texts</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">underlineTextStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">
+{
+  textDecorationLine: 'underline',
+}</pre>
+          </div>
+          <div class="divTableCell">The text style for the underlined texts</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">strikethroughTextStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">
+{
+  textDecorationLine: 'line-through',
+}</pre>
+          </div>
+          <div class="divTableCell">The text style for the texts with strikethrough</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">linkTextStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The text style for the texts with links</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">style</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Container View style</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">regularColor</div>
+          <div class="divTableCell">string | undefined</div>
+          <div class="divTableCell">black</div>
+          <div class="divTableCell">Default color for the text</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">linkEvents</div>
+          <div class="divTableCell">[() => void] | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">When [link] is used in a text, events can be attached to these partial texts with linkEvents through their indices.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4>Example</h4>
+  <pre class="codeArea">
+    &lt;ColorText
+      linkEvents={[
+        () => alert('The first link is pressed!'),
+        () => alert('The second link is pressed!'),
+      ]}
+      linkTextStyle={{
+        textDecorationLine: 'underline',
+        color: 'darkblue',
+        fontWeight: 'bold',
+      }}&gt;
+      [b]Lorem ipsum dolor[/b] sit amet, consectetur
+      [color:#FA5544]adipiscing elit, sed do eiusmod[/color] tempor
+      incididunt ut [u]labore et dolore magna[/u] aliqua. Ut enim ad
+      [s]minim veniam, quis[/s] nostrud exercitation ullamco laboris nisi ut
+      aliquip ex ea commodo consequat. And here is a [link]link[/link]! And
+      another [link]link[/link]!
+    &lt;/ColorText&gt;</pre>
+</div>

@@ -1,0 +1,94 @@
+<div>
+  <h2>Bottom Action Sheet</h2>
+  <div class="imageTableContainer">
+    <div>
+      <img style="max-width: 300px; margin: 24px;" src="assets/BottomActionSheet.gif" />
+    </div>
+    <div class="divTable">
+      <div class="divTableBody">
+        <div class="divTableRow divTableHeading">
+          <div class="divTableCell">Property</div>
+          <div class="divTableCell">Type</div>
+          <div class="divTableCell">Default</div>
+          <div class="divTableCell">Description</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">options</div>
+          <div class="divTableCell">Array&lt;string&gt;</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Array of selectable options when the sheet appears</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">ios</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+destructiveButtonIndex?: number;
+} | undefined</pre>
+          </div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  height: 24,
+  width: 24,
+  resizeMode: 'contain',
+}</pre>
+          </div>
+          <div class="divTableCell">iOS properties for setting the destructiveButtonIndex</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">cancelButtonIndex</div>
+          <div class="divTableCell">number | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The index of the dismiss button</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">android</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  minClosingHeight?: number;
+  duration?: number;
+  onClose: (() => void) | null;
+  closeOnDragDown?: boolean;
+  closeOnPressMask?: boolean;
+  closeOnPressBack?: boolean;
+  closeOnButtonPress?: boolean;
+  animationType?: 'none' | 'slide' | 'fade' | undefined;
+  customStyles?: CustomStyle;
+} | undefined</pre>
+          </div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+android: {
+  animationType: 'none',
+  minClosingHeight: 0,
+  duration: 300,
+  closeOnDragDown: true,
+  closeOnPressMask: true,
+  closeOnPressBack: true,
+  closeOnButtonPress: true,
+  customStyles: {},
+  onClose: null,
+}</pre>
+          </div>
+          <div class="divTableCell">Android specific properties.</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">onPressWithIndex</div>
+          <div class="divTableCell">(buttonIndex: number) => void</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The event for presses by index</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4>Example</h4>
+  <pre class="codeArea">
+    &lt;AccordionRow
+        image={require('./candy.png')}
+        name="Accordion Row"
+        description="Lorem ipsum dolor sit amet."
+        animate
+      /&gt;</pre>
+</div>
