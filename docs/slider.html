@@ -93,16 +93,114 @@
           <div class="divTableCell">Style for the container of the texts on the top left and the top right side of the
             component</div>
         </div>
+        <div class="divTableRow">
+          <div class="divTableCell">sliderStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the slider itself</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">sliderTouchableStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the TouchableWithoutFeedback component around the slider</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">minimum</div>
+          <div class="divTableCell">number</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The minimum number value for the slider</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">maximum</div>
+          <div class="divTableCell">number</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The maximum number value for the slider</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">onValueChange</div>
+          <div class="divTableCell">(value: number) => void</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Event for value change</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">thumbWidth</div>
+          <div class="divTableCell">number | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Width for the thumb</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">existingValue</div>
+          <div class="divTableCell">number | undefined</div>
+          <div class="divTableCell">minimum value</div>
+          <div class="divTableCell">The value that the slider first renders with</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">value</div>
+          <div class="divTableCell">number | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Current value</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">leftText</div>
+          <div class="divTableCell">string | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Text for the top left</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">rightText</div>
+          <div class="divTableCell">string | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Text for the top right</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">showTooltipOnSlide</div>
+          <div class="divTableCell">boolean | undefined</div>
+          <div class="divTableCell">false</div>
+          <div class="divTableCell">Whether to show the tooltip or not during drag</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">step</div>
+          <div class="divTableCell">number | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Count of steps for the slider</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">tintColor</div>
+          <div class="divTableCell">string | undefined</div>
+          <div class="divTableCell">'#00B4A7'</div>
+          <div class="divTableCell">Tint color for the filled part of the track</div>
+        </div>
       </div>
     </div>
   </div>
   <h4>Example</h4>
   <pre class="codeArea">
-    &lt;IconButton
-      style={{width: '100%'}}
-      onPress={() => alert('I really do!')}
-      text={'I have icons'}
-      leftIcon={require('./candy.png')}
-      rightIcon={require('./candy.png')}
+    &lt;Slider
+      minimum={0}
+      maximum={10}
+      onValueChange={(number) => {
+        console.log(number);
+      }}
+      thumbWidth={50}
+      showTooltipOnSlide
+      leftText={'Low'}
+      rightText={'High'}
+      existingValue={5}
+      thumbStyle={{
+        height: 31,
+        borderRadius: 15.5,
+        borderColor: 'rgb(243, 243, 243)',
+        borderWidth: 1,
+        backgroundColor: 'white',
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 3.0,
+        elevation: 5,
+      }}
     /&gt;</pre>
 </div>
