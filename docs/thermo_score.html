@@ -108,11 +108,20 @@
   </div>
   <h4>Example</h4>
   <pre class="codeArea">
-    &lt;IconButton
-      style={{width: '100%'}}
-      onPress={() => alert('I really do!')}
-      text={'I have icons'}
-      leftIcon={require('./candy.png')}
-      rightIcon={require('./candy.png')}
-    /&gt;</pre>
+    &lt;View style={{flexDirection: 'row'}}&gt;
+      &lt;ThermoScore
+        style={{marginHorizontal: 16}}
+        middleCount={2}
+        firstPercentage={60}
+        firstColor={'#FA5544'}
+      /&gt;
+      &lt;ThermoScore
+        style={{marginHorizontal: 16}}
+        middleCount={2}
+        firstPercentage={60}
+        secondPercentage={30}
+        firstColor={'#FA5544'}
+        secondColor={'#f9c450'}
+      /&gt;
+    &lt;/View&gt;</pre>
 </div>
