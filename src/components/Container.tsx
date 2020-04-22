@@ -15,7 +15,7 @@ interface Props {
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   androidStatusBarMargin?: boolean;
   iosStatusBarColor?: string;
-  iosBottomSafeArea?: boolean;
+  bottomSafeArea?: boolean;
 }
 
 class Container extends Component<Props> {
@@ -48,7 +48,7 @@ class Container extends Component<Props> {
         <SafeAreaView
           forceInset={{
             top: iosStatusBarColor ? 'never' : 'always',
-            bottom: this.props.iosBottomSafeArea ? 'always' : 'never',
+            bottom: this.props.bottomSafeArea ? 'always' : 'never',
           }}
           style={[styles.root, {backgroundColor: bgColor}]}>
           <View style={computedStyles}>{children}</View>
