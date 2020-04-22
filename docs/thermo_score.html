@@ -1,0 +1,118 @@
+<div>
+  <h2>Thermo Score</h2>
+  <div class="imageTableContainer">
+    <div>
+      <img style="max-width: 300px; margin: 24px;" src="assets/IconButton.gif" />
+    </div>
+    <div class="divTable">
+      <div class="divTableBody">
+        <div class="divTableRow divTableHeading">
+          <div class="divTableCell">Property</div>
+          <div class="divTableCell">Type</div>
+          <div class="divTableCell">Default</div>
+          <div class="divTableCell">Description</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">style</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{alignItems: 'center'}</pre>
+          </div>
+          <div class="divTableCell">Style for the container</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">scoreBackgroundStyle</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  width: 32,
+  height: 58,
+  backgroundColor: '#525d7e',
+  opacity: 0.1,
+  borderWidth: 0,
+  zIndex: 1,
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the background of the thermo score</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">scoreSeparatorStyle</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  height: 1,
+  backgroundColor: 'white',
+  zIndex: 3,
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the equally divided separators</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">pointViewStyle</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  width: 32,
+  borderWidth: 0,
+  position: 'absolute',
+  zIndex: 2,
+
+  borderRadius: 16,
+  shadowOffset: {width: 0, height: 2},
+  shadowOpacity: 0.5,
+  shadowRadius: 11,
+  elevation: 5,
+
+  shadowColor: firstColor || '#FA5544', // or secondColor depending on which score it is
+  backgroundColor: firstColor || '#FA5544',
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the equally divided separators</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">firstPercentage</div>
+          <div class="divTableCell">number</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The main percentage</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">secondPercentage</div>
+          <div class="divTableCell">number | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">The second percentage, if defined creates a two-sided ThermoScore</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">middleCount</div>
+          <div class="divTableCell">number</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Number of parts the ThermoScore has in the middle</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">firstColor</div>
+          <div class="divTableCell">string | undefined</div>
+          <div class="divTableCell">'#FA5544'</div>
+          <div class="divTableCell">Color of the main percentage</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">secondColor</div>
+          <div class="divTableCell">string | undefined</div>
+          <div class="divTableCell">'#FA5544'</div>
+          <div class="divTableCell">Color of the secondary percentage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4>Example</h4>
+  <pre class="codeArea">
+    &lt;IconButton
+      style={{width: '100%'}}
+      onPress={() => alert('I really do!')}
+      text={'I have icons'}
+      leftIcon={require('./candy.png')}
+      rightIcon={require('./candy.png')}
+    /&gt;</pre>
+</div>
