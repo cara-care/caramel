@@ -11,7 +11,6 @@ import theme from '../utils/Theme';
 interface OwnProps {
   percentage: number;
   style?: ViewStyle;
-  separatorStyle?: ViewStyle | RegisteredStyle<ViewStyle>;
   background?: ViewStyle;
   foreground?: ViewStyle;
 }
@@ -54,15 +53,14 @@ const AnimatedProgressBar = (props: OwnProps) => {
       <Animated.View
         style={[
           {width: interpolateBar},
-          separatorStyles.progressSeparator,
+          styles.progressSeparator,
           props.foreground,
         ]}
       />
       <View
         style={[
-          separatorStyles.topSeparator,
+          styles.background,
           props.background,
-          props.separatorStyle,
         ]}
       />
     </View>
@@ -71,7 +69,7 @@ const AnimatedProgressBar = (props: OwnProps) => {
 
 export default AnimatedProgressBar;
 
-export const separatorStyles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     width: '100%',
   },
@@ -83,7 +81,7 @@ export const separatorStyles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  progressSeparator: {
+  background: {
     height: 2,
     backgroundColor: theme.colors.primary,
     zIndex: 10,
