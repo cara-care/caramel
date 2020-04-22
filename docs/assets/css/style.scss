@@ -12,6 +12,11 @@
   }
 }
 
+.page-header {
+  background-color: #01B3A8;
+  background-image: linear-gradient(180deg, #09B7AD, #028E86);
+}
+
 @media only screen and (max-width: 768px) {
   .imageTableContainer {
     flex-direction: column;
