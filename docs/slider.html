@@ -1,0 +1,108 @@
+<div>
+  <h2>Slider</h2>
+  <div class="imageTableContainer">
+    <div>
+      <img style="max-width: 300px; margin: 24px;" src="assets/Slider.gif" />
+    </div>
+    <div class="divTable">
+      <div class="divTableBody">
+        <div class="divTableRow divTableHeading">
+          <div class="divTableCell">Property</div>
+          <div class="divTableCell">Type</div>
+          <div class="divTableCell">Default</div>
+          <div class="divTableCell">Description</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">thumbStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the thumb</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">thumbTextStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  color: '#535D7E',
+}</pre>
+          </div>
+          <div class="divTableCell">Text style for the thumb</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">trackStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  borderRadius: 5,
+  height: 10,
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the track</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">tooltipStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  color: 'white',
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the tooltip text</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">leftTextStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  opacity: 0.8,
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the top left text</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">rightTextStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  opacity: 0.8,
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the top right text</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">containerStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the component container</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">sliderContainerStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the slider component container</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">topTextsContainerStyle</div>
+          <div class="divTableCell">StyleProp | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the container of the texts on the top left and the top right side of the
+            component</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4>Example</h4>
+  <pre class="codeArea">
+    &lt;IconButton
+      style={{width: '100%'}}
+      onPress={() => alert('I really do!')}
+      text={'I have icons'}
+      leftIcon={require('./candy.png')}
+      rightIcon={require('./candy.png')}
+    /&gt;</pre>
+</div>

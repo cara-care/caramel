@@ -19,7 +19,7 @@ interface IProps {
   rightTextStyle?: StyleProp<any>;
   containerStyle?: StyleProp<any>;
   sliderContainerStyle?: StyleProp<any>;
-  timeContainerStyle?: StyleProp<any>;
+  topTextsContainerStyle?: StyleProp<any>;
   sliderStyle?: StyleProp<any>;
   sliderTouchableStyle?: StyleProp<any>;
   minimum: number;
@@ -94,7 +94,7 @@ export default class Slider extends PureComponent<IProps, IState> {
       rightTextStyle,
       containerStyle,
       sliderContainerStyle,
-      timeContainerStyle,
+      topTextsContainerStyle,
       sliderStyle,
       sliderTouchableStyle,
     } = this.props;
@@ -131,7 +131,7 @@ export default class Slider extends PureComponent<IProps, IState> {
     } = this.props;
     return (
       <View style={containerStyle}>
-        <View style={[styles.topTextsContainer, timeContainerStyle]}>
+        <View style={[styles.topTextsContainer, topTextsContainerStyle]}>
           {leftTopText}
           {rightTopText}
         </View>
@@ -178,12 +178,12 @@ export default class Slider extends PureComponent<IProps, IState> {
                 left: textLeftCalculation,
               },
             ]}>
-            <Text type="small" style={[thumbTextStyle, styles.thumbText]}>
+            <Text type="small" style={[styles.thumbText, thumbTextStyle]}>
               {this.state.value + minimum}
             </Text>
             {showTooltipOnSlide && this.state.showTooltip && (
               <View style={styles.tooltip}>
-                <Text type="header4" style={[tooltipStyle, styles.tooltipText]}>
+                <Text type="header4" style={[styles.tooltipText, tooltipStyle]}>
                   {this.state.value + minimum}
                 </Text>
               </View>
