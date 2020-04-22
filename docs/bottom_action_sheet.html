@@ -89,10 +89,23 @@
   </div>
   <h4>Example</h4>
   <pre class="codeArea">
-    &lt;AccordionRow
-        image={require('./candy.png')}
-        name="Accordion Row"
-        description="Lorem ipsum dolor sit amet."
-        animate
-      /&gt;</pre>
+    let bottomActionSheet: BottomActionSheet;
+    &lt;Button
+      onPress={() => {
+        bottomActionSheet.openSheet();
+      }}
+      title="Open"
+    /&gt;
+    &lt;BottomActionSheet
+      ref={(ref) => {
+        bottomActionSheet = ref;
+      }}
+      options={['OK', 'Cancel']}
+      cancelButtonIndex={1}
+      onPressWithIndex={(index) => {
+        if (Platform.OS === 'android' && index === 0) {
+          bottomActionSheet.closeSheet();
+        }
+      }}
+    /&gt;</pre>
 </div>

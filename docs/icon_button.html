@@ -1,0 +1,110 @@
+<div>
+  <h2>Icon Button</h2>
+  <div class="imageTableContainer">
+    <div>
+      <img style="max-width: 300px; margin: 24px;" src="assets/IconButton.gif" />
+    </div>
+    <div class="divTable">
+      <div class="divTableBody">
+        <div class="divTableRow divTableHeading">
+          <div class="divTableCell">Property</div>
+          <div class="divTableCell">Type</div>
+          <div class="divTableCell">Default</div>
+          <div class="divTableCell">Description</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">leftIcon</div>
+          <div class="divTableCell">ImageSourcePropType | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Image source for the left icon</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">rightIcon</div>
+          <div class="divTableCell">ImageSourcePropType | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Image source for the right icon</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">leftIconStyle</div>
+          <div class="divTableCell">ImageStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  width: 24,
+  height: 24,
+  resizeMode: 'contain',
+}</pre>
+          </div>
+          <div class="divTableCell">Image style for the left icon</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">rightIconStyle</div>
+          <div class="divTableCell">ImageStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  width: 24,
+  height: 24,
+  resizeMode: 'contain',
+}</pre>
+          </div>
+          <div class="divTableCell">Image style for the right icon</div>
+        </div>
+        <div class="textStyle">
+          <div class="divTableCell">textStyle</div>
+          <div class="divTableCell">TextStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  fontSize: 16,
+  lineHeight: 28,
+  letterSpacing: -0.28,
+  color: '#00B4A7',
+}</pre>
+          </div>
+          <div class="divTableCell">Text style for the text inside the button</div>
+        </div>
+        <div class="textStyle">
+          <div class="divTableCell">style</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  height: 60,
+  borderRadius: 6,
+  borderWidth: 2,
+  borderColor: theme.colors.primary,
+  marginHorizontal: 20,
+  paddingHorizontal: 10,
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the container</div>
+        </div>
+        <div class="textStyle">
+          <div class="divTableCell">text</div>
+          <div class="divTableCell">string</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Button text</div>
+        </div>
+        <div class="textStyle">
+          <div class="divTableCell">onPress</div>
+          <div class="divTableCell">() => void | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">onPress event for the button</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4>Example</h4>
+  <pre class="codeArea">
+    &lt;IconButton
+      style={{width: '100%'}}
+      onPress={() => alert('I really do!')}
+      text={'I have icons'}
+      leftIcon={require('./candy.png')}
+      rightIcon={require('./candy.png')}
+    /&gt;</pre>
+</div>
