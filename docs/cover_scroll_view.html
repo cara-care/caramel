@@ -1,0 +1,61 @@
+<div>
+  <h2>Cover Scroll View</h2>
+  <div class="imageTableContainer">
+    <div>
+      <img style="max-width: 300px; margin: 24px;" src="assets/CoverScrollView.gif" />
+    </div>
+    <div class="divTable">
+      <div class="divTableBody">
+        <div class="divTableRow divTableHeading">
+          <div class="divTableCell">Property</div>
+          <div class="divTableCell">Type</div>
+          <div class="divTableCell">Default</div>
+          <div class="divTableCell">Description</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">style</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the container</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">scrollViewStyle</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  flexGrow: 1,
+}</pre>
+          </div>
+          <div class="divTableCell">Style for the Animated.ScrollView</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">imageStyle</div>
+          <div class="divTableCell">ImageStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the cover image</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">imageContainerStyle</div>
+          <div class="divTableCell">ViewStyle | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Style for the cover image Animated.View container</div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">image</div>
+          <div class="divTableCell">ImageSourcePropType | undefined</div>
+          <div class="divTableCell">-</div>
+          <div class="divTableCell">Image source for the cover image</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4>Example</h4>
+  <pre class="codeArea">
+    &lt;CoverScrollView image={require('./caramel.jpg')}&gt;
+      &lt;Text style={{color: 'black', marginHorizontal: 16}}&gt;
+        Lorem ipsum dolor sit amet
+        ...
+      &lt;/Text&gt;
+    &lt;/CoverScrollView&gt;</pre>
+</div>
