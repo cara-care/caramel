@@ -21,19 +21,41 @@
         <div class="divTableRow">
           <div class="divTableCell">style</div>
           <div class="divTableCell">ViewStyle | undefined</div>
-          <div class="divTableCell">-</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  width: '100%',
+}</pre>
+          </div>
           <div class="divTableCell">Style of the container View.</div>
         </div>
         <div class="divTableRow">
           <div class="divTableCell">background</div>
           <div class="divTableCell">ViewStyle | undefined</div>
-          <div class="divTableCell">-</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  height: 1,
+  backgroundColor: 'black',
+  opacity: 0.25,
+  position: 'absolute',
+  left: 0,
+  right: 0,
+}</pre>
+          </div>
           <div class="divTableCell">Style of the track.</div>
         </div>
         <div class="divTableRow">
           <div class="divTableCell">foreground</div>
           <div class="divTableCell">ViewStyle | undefined</div>
-          <div class="divTableCell">-</div>
+          <div class="divTableCell">
+            <pre class="codeArea">
+{
+  height: 2,
+  backgroundColor: theme.colors.primary,
+  zIndex: 10,
+}</pre>
+          </div>
           <div class="divTableCell">Style of the filled track.</div>
         </div>
       </div>
@@ -41,10 +63,11 @@
   </div>
   <h4>Example</h4>
   <pre class="codeArea">
-    &lt;AccordionRow
-        image={require('./candy.png')}
-        name="Accordion Row"
-        description="Lorem ipsum dolor sit amet."
-        animate
+    const [animatedPercentage, setAnimatedPercentage] = useState(0);
+    &lt;AnimatedProgressBar
+        style={{width: '100%', marginBottom: 50}}
+        percentage={animatedPercentage}
+        foreground={{height: 30, borderRadius: 24}}
+        background={{height: 30, borderRadius: 24}}
       /&gt;</pre>
 </div>

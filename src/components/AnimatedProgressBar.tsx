@@ -4,7 +4,6 @@ import {
   StyleSheet,
   View,
   ViewStyle,
-  RegisteredStyle,
 } from 'react-native';
 import theme from '../utils/Theme';
 
@@ -53,13 +52,13 @@ const AnimatedProgressBar = (props: OwnProps) => {
       <Animated.View
         style={[
           {width: interpolateBar},
-          styles.progressSeparator,
+          separatorStyles.progress,
           props.foreground,
         ]}
       />
       <View
         style={[
-          styles.background,
+          separatorStyles.track,
           props.background,
         ]}
       />
@@ -69,11 +68,11 @@ const AnimatedProgressBar = (props: OwnProps) => {
 
 export default AnimatedProgressBar;
 
-export const styles = StyleSheet.create({
+export const separatorStyles = StyleSheet.create({
   container: {
     width: '100%',
   },
-  topSeparator: {
+  track: {
     height: 1,
     backgroundColor: 'black',
     opacity: 0.25,
@@ -81,7 +80,7 @@ export const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  background: {
+  progress: {
     height: 2,
     backgroundColor: theme.colors.primary,
     zIndex: 10,
