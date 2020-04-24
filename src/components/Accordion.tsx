@@ -27,7 +27,9 @@ interface IProps {
   animate?: boolean;
 }
 
-interface IState {}
+interface IState {
+
+}
 
 class Accordion extends React.Component<IProps, IState> {
   private dropdowns: {index: number; view: AccordionRow}[] = [];
