@@ -1,13 +1,11 @@
-const mediumGrey = '#AEAEAE';
-const kaleGreen = '#1E8080';
-const aquaMarine = '#50E3C2';
-const sunFlowerYellow = '#FFD13E';
-const carrotRed = '#FA5544';
-const raspberryRed = '#DD206A';
-
 const theme = {
   colors: {
+    rippleGreen: '#5ce6dd',
+    iosBlue: '#147efb',
+    goodGreen: '#01b3a8',
+    riskyYellow: '#f9c450',
     primary: '#00B4A7',
+    persianGreen: '#05b3a9',
     primaryDisabled: 'rgba(0,180,167,0.1)',
     dusk: '#535D7E',
     dusk2: '#505b7d',
@@ -19,37 +17,20 @@ const theme = {
     malibu: '#80a6fd',
     ultraLightGrey: 'rgba(247, 247,  247, 1)',
     lightGrey: '#dddddd',
-    mediumGrey,
     darkGrey: '#595959',
     grey: '#898989',
-    greyBg: '#F4F7F8',
+    greyBg: '#f4f7f8',
     skeleton: '#e3e3e3',
-    kaleGreen,
-    aquaMarine,
-    sunFlowerYellow,
-    carrotRed,
-    raspberryRed,
-    trafficLightColorScale: [
-      kaleGreen,
-      aquaMarine,
-      sunFlowerYellow,
-      carrotRed,
-      raspberryRed,
-    ],
-    trafficLightColorScaleStool: [
-      mediumGrey,
-      raspberryRed,
-      raspberryRed,
-      sunFlowerYellow,
-      kaleGreen,
-      kaleGreen,
-      sunFlowerYellow,
-      raspberryRed,
-      raspberryRed,
-    ],
+    emptyGrey: '#bdbfcd',
+    border: '#dadaed',
+    mediumGrey: '#AEAEAE',
+    kaleGreen: '#1E8080',
+    aquaMarine: '#50E3C2',
+    sunFlowerYellow: '#FFD13E',
+    carrotRed: '#FA5544',
+    raspberryRed: '#DD206A',
   },
   typography: {
-    color: '#a9aebe',
     header1: {
       fontSize: 32,
       lineHeight: 46,

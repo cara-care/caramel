@@ -9,5 +9,6 @@ import Accordion from './components/Accordion';
 import Container from './components/Container';
 import IconButton from './components/IconButton';
 import CoverScrollView from './components/CoverScrollView';
+import theme from './utils/Theme';
 
-export {Text, ColorText, AnimatedProgressBar, Slider, BottomActionSheet, Container, ThermoScore, AccordionRow, Accordion, IconButton, CoverScrollView};
+export {Text, ColorText, AnimatedProgressBar, Slider, BottomActionSheet, Container, ThermoScore, AccordionRow, Accordion, IconButton, CoverScrollView, theme};
