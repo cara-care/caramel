@@ -31,6 +31,7 @@ const theme = {
     raspberryRed: '#DD206A',
   },
   typography: {
+    color: '#a9aebe',
     header1: {
       fontSize: 32,
       lineHeight: 46,
