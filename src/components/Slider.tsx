@@ -103,9 +103,9 @@ export default class Slider extends PureComponent<IProps, IState> {
     const division = maximum - minimum;
     const textLeftCalculation = thumbWidth
       ? ((this.state.componentWidth - thumbWidth) / division) *
-          this.state.value +
-        thumbWidth / 2 -
-        this.state.textWidth / 2
+      this.state.value +
+      thumbWidth / 2 -
+      this.state.textWidth / 2
       : 0;
 
     const leftTopText = leftText ? (
@@ -113,15 +113,15 @@ export default class Slider extends PureComponent<IProps, IState> {
         {leftText}
       </Text>
     ) : (
-      <View />
-    );
+        <View />
+      );
     const rightTopText = rightText ? (
       <Text type="normal" style={[styles.topTexts, rightTextStyle]}>
         {rightText}
       </Text>
     ) : (
-      <View />
-    );
+        <View />
+      );
     const {
       thumbStyle,
       trackStyle,
@@ -164,11 +164,15 @@ export default class Slider extends PureComponent<IProps, IState> {
               }}
               onSlidingStart={() => {
                 this.setState({showTooltip: true});
-                onSlidingStart();
+                if (!!onSlidingStart) {
+                  onSlidingStart();
+                }
               }}
               onSlidingComplete={() => {
                 this.setState({showTooltip: false});
-                onSlidingComplete();
+                if (!!onSlidingComplete) {
+                  onSlidingComplete();
+                }
               }}
             />
           </TouchableWithoutFeedback>
