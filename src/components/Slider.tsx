@@ -25,6 +25,8 @@ interface IProps {
   minimum: number;
   maximum: number;
   onValueChange: (value: number) => void;
+  onSlidingStart: () => void;
+  onSlidingComplete: () => void;
   thumbWidth?: number;
   existingValue?: number;
   value?: number;
@@ -126,6 +128,8 @@ export default class Slider extends PureComponent<IProps, IState> {
       thumbTextStyle,
       tooltipStyle,
       onValueChange,
+      onSlidingStart,
+      onSlidingComplete,
       step,
       tintColor,
     } = this.props;
@@ -160,9 +164,11 @@ export default class Slider extends PureComponent<IProps, IState> {
               }}
               onSlidingStart={() => {
                 this.setState({showTooltip: true});
+                onSlidingStart();
               }}
               onSlidingComplete={() => {
                 this.setState({showTooltip: false});
+                onSlidingComplete();
               }}
             />
           </TouchableWithoutFeedback>
