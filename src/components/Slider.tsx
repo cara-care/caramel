@@ -25,8 +25,8 @@ interface IProps {
   minimum: number;
   maximum: number;
   onValueChange: (value: number) => void;
-  onSlidingStart: () => void;
-  onSlidingComplete: () => void;
+  onSlidingStart?: () => void;
+  onSlidingComplete?: () => void;
   thumbWidth?: number;
   existingValue?: number;
   value?: number;
