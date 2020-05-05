@@ -28,7 +28,7 @@
     "clean": "rimraf dist",
     "build": "tsc -d",
     "prepublishOnly": "npm run build",
-    "format": "prettier --config .prettierrc --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --config .prettierrc.js --write 'src/**/*.{js,jsx,ts,tsx}'",
     "eslint": "eslint \"src/**/*.tsx\"",
     "type-check": "tsc --noEmit",
     "test": "jest"

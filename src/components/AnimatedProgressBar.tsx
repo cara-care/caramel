@@ -1,10 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  Animated,
-  StyleSheet,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {Animated, StyleSheet, View, ViewStyle} from 'react-native';
 import theme from '../utils/Theme';
 
 interface OwnProps {
@@ -56,12 +51,7 @@ const AnimatedProgressBar = (props: OwnProps) => {
           props.foreground,
         ]}
       />
-      <View
-        style={[
-          separatorStyles.track,
-          props.background,
-        ]}
-      />
+      <View style={[separatorStyles.track, props.background]} />
     </View>
   );
 };

@@ -1,5 +1,13 @@
 import React from 'react';
-import {Image, View, StyleSheet, Animated, ImageSourcePropType, ImageStyle, ViewStyle} from 'react-native';
+import {
+  Image,
+  View,
+  StyleSheet,
+  Animated,
+  ImageSourcePropType,
+  ImageStyle,
+  ViewStyle,
+} from 'react-native';
 import theme from '../utils/Theme';
 import {MAX_HEADER_HEIGHT, HEADER_DELTA} from '../utils/Calculations';
 
@@ -10,7 +18,12 @@ interface Props {
   imageContainerStyle?: ViewStyle;
 }
 
-const CoverImage: React.FC<Props> = ({y, image, imageStyle, imageContainerStyle}) => {
+const CoverImage: React.FC<Props> = ({
+  y,
+  image,
+  imageStyle,
+  imageContainerStyle,
+}) => {
   const scale = y.interpolate({
     inputRange: [-MAX_HEADER_HEIGHT, 0],
     outputRange: [2, 1],
@@ -23,9 +36,10 @@ const CoverImage: React.FC<Props> = ({y, image, imageStyle, imageContainerStyle}
   });
 
   return (
-    <Animated.View style={[styles.root, {transform: [{scale}]}, imageContainerStyle]}>
+    <Animated.View
+      style={[styles.root, {transform: [{scale}]}, imageContainerStyle]}>
       {image ? (
-          <Image source={image} style={[styles.image, imageStyle]} />
+        <Image source={image} style={[styles.image, imageStyle]} />
       ) : (
         <View style={styles.image} />
       )}
