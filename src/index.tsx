@@ -9,9 +9,12 @@ import Accordion from './components/Accordion';
 import Container from './components/Container';
 import IconButton from './components/IconButton';
 import CoverScrollView from './components/CoverScrollView';
-import TouchableBreath from './components/TouchableBreath';
 import theme from './utils/Theme';
 
+export {
+  default as TouchableBreath,
+  TouchableBreathProps,
+} from './components/TouchableBreath';
 export {
   Text,
   ColorText,
@@ -24,6 +27,5 @@ export {
   Accordion,
   IconButton,
   CoverScrollView,
-  TouchableBreath,
   theme,
 };

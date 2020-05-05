@@ -103,3 +103,5 @@ export const TouchableBreath: React.FC<TouchableBreathProps> = ({
     </TouchableOpacity>
   );
 };
+
+export default TouchableBreath;
