@@ -16,16 +16,19 @@ import {
   AccordionRow,
   IconButton,
   CoverScrollView,
+  TouchableBreath,
 } from '../src/';
 import theme from '../src/utils/Theme';
 
 storiesOf('Slider', module)
-  .addDecorator(getStory => <CenterView align={false}>{getStory()}</CenterView>)
+  .addDecorator((getStory) => (
+    <CenterView align={false}>{getStory()}</CenterView>
+  ))
   .add('Slider', () => (
     <Slider
       minimum={0}
       maximum={10}
-      onValueChange={number => {
+      onValueChange={(number) => {
         console.log(number);
       }}
       thumbWidth={50}
@@ -38,7 +41,9 @@ storiesOf('Slider', module)
   ));
 
 storiesOf('Button', module)
-  .addDecorator(getStory => <CenterView align={false}>{getStory()}</CenterView>)
+  .addDecorator((getStory) => (
+    <CenterView align={false}>{getStory()}</CenterView>
+  ))
   .add('IconButton', () => (
     <IconButton
       onPress={() => Alert.alert('I really do!')}
@@ -46,10 +51,22 @@ storiesOf('Button', module)
       text={'I have icons'}
       rightIcon={require('../images/iconArrowDown.png')}
     />
+  ))
+  .add('TouchableBreath', () => (
+    <TouchableBreath
+      onPress={() => Alert.alert('Deep breaths')}
+      textStyle={{fontFamily: theme.typography.medium}}
+      text={'I have icons'}>
+      <View style={styles.breathStyle}>
+        <Text style={{color: 'black'}}>TouchableBreath</Text>
+      </View>
+    </TouchableBreath>
   ));
 
 storiesOf('Texts', module)
-  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .addDecorator((getStory) => (
+    <CenterView align={true}>{getStory()}</CenterView>
+  ))
   .add('Header 1', () => (
     <Text type="header1" style={{color: theme.colors.dusk}}>
       Hello World
@@ -72,7 +89,9 @@ storiesOf('Texts', module)
   ));
 
 storiesOf('ColorText', module)
-  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .addDecorator((getStory) => (
+    <CenterView align={true}>{getStory()}</CenterView>
+  ))
   .add('Multiple Colors', () => (
     <ColorText style={{color: theme.colors.dusk}}>
       [color:#ff0000]Hello[/color] [color:#00ff00]this is a[/color]
@@ -112,7 +131,9 @@ storiesOf('ColorText', module)
   ));
 
 storiesOf('ProgressBar', module)
-  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .addDecorator((getStory) => (
+    <CenterView align={true}>{getStory()}</CenterView>
+  ))
   .add('AnimatedProgressBar', () => (
     <AnimatedProgressBar
       style={styles.animatedProgress}
@@ -126,7 +147,9 @@ storiesOf('ProgressBar', module)
   ));
 
 storiesOf('BottomActionSheet', module)
-  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .addDecorator((getStory) => (
+    <CenterView align={true}>{getStory()}</CenterView>
+  ))
   .add('BottomActionSheet', () => (
     <View>
       <Button
@@ -136,12 +159,12 @@ storiesOf('BottomActionSheet', module)
         title="Open"
       />
       <BottomActionSheet
-        ref={ref => {
+        ref={(ref) => {
           this.bottomActionSheet = ref;
         }}
         options={['OK', 'Cancel']}
         cancelButtonIndex={1}
-        onPressWithIndex={index => {
+        onPressWithIndex={(index) => {
           if (Platform.OS === 'android' && index === 0) {
             this.bottomActionSheet.closeSheet();
           }
@@ -151,7 +174,9 @@ storiesOf('BottomActionSheet', module)
   ));
 
 storiesOf('Accordion', module)
-  .addDecorator(getStory => <CenterView align={true}>{getStory()}</CenterView>)
+  .addDecorator((getStory) => (
+    <CenterView align={true}>{getStory()}</CenterView>
+  ))
   .add('Accordion List', () => (
     <View style={{width: '100%'}}>
       <Accordion
@@ -174,7 +199,7 @@ storiesOf('Accordion', module)
   ));
 
 storiesOf('CoverView', module)
-  .addDecorator(getStory => <View>{getStory()}</View>)
+  .addDecorator((getStory) => <View>{getStory()}</View>)
   .add('CoverView', () => (
     <View style={{width: '100%'}}>
       <CoverScrollView image={require('../images/netherlands.jpg')}>
@@ -224,6 +249,15 @@ storiesOf('CoverView', module)
   ));
 
 const styles = StyleSheet.create({
+  breathStyle: {
+    height: 100,
+    width: '100%',
+    backgroundColor: 'white',
+    borderColor: 'black',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   animatedProgress: {
     position: 'absolute',
     top: '50%',
