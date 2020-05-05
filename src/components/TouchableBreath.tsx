@@ -20,7 +20,7 @@ export type TouchableBreathProps = TouchableOpacityProps & IPressProps;
  * On press out the wrapped view is scaled back to 1.
  *
  */
-const TouchableBreath: React.FC<TouchableBreathProps> = ({
+export const TouchableBreath: React.FC<TouchableBreathProps> = ({
   delayLongPress,
   delayPressIn,
   delayPressOut,
@@ -103,5 +103,3 @@ const TouchableBreath: React.FC<TouchableBreathProps> = ({
     </TouchableOpacity>
   );
 };
-
-export default TouchableBreath;
