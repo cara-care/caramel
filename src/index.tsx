@@ -11,4 +11,18 @@ import IconButton from './components/IconButton';
 import CoverScrollView from './components/CoverScrollView';
 import theme from './utils/Theme';
 
-export {Text, ColorText, AnimatedProgressBar, Slider, BottomActionSheet, Container, ThermoScore, AccordionRow, Accordion, IconButton, CoverScrollView, theme};
+export * from './components/TouchableBreath';
+export {
+  Text,
+  ColorText,
+  AnimatedProgressBar,
+  Slider,
+  BottomActionSheet,
+  Container,
+  ThermoScore,
+  AccordionRow,
+  Accordion,
+  IconButton,
+  CoverScrollView,
+  theme,
+};
