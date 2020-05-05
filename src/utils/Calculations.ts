@@ -1,4 +1,4 @@
-import {Dimensions, Platform, StatusBar} from "react-native";
+import {Dimensions, Platform, StatusBar} from 'react-native';
 
 const {height} = Dimensions.get('window');
 // https://en.wikipedia.org/wiki/Golden_ratio

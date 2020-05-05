@@ -1,29 +1,16 @@
-import Text from './components/Text';
-import ColorText from './components/ColorText';
-import AnimatedProgressBar from './components/AnimatedProgressBar';
-import ThermoScore from './components/ThermoScore';
-import AccordionRow from './organisms/AccordionRow';
-import Slider from './components/Slider';
-import BottomActionSheet from './components/BottomActionSheet';
-import Accordion from './components/Accordion';
-import Container from './components/Container';
-import IconButton from './components/IconButton';
-import CoverScrollView from './components/CoverScrollView';
-import TouchableBreath from './components/TouchableBreath';
-import theme from './utils/Theme';
-
+export {default as Accordion} from './components/Accordion';
+export {default as AccordionRow} from './organisms/AccordionRow';
+export {default as AnimatedProgressBar} from './components/AnimatedProgressBar';
+export {default as BottomActionSheet} from './components/BottomActionSheet';
+export {default as ColorText} from './components/ColorText';
+export {default as Container} from './components/Container';
+export {default as CoverScrollView} from './components/CoverScrollView';
+export {default as IconButton} from './components/IconButton';
+export {default as Slider} from './components/Slider';
+export {default as Text} from './components/Text';
+export {default as ThermoScore} from './components/ThermoScore';
 export {
-  Text,
-  ColorText,
-  AnimatedProgressBar,
-  Slider,
-  BottomActionSheet,
-  Container,
-  ThermoScore,
-  AccordionRow,
-  Accordion,
-  IconButton,
-  CoverScrollView,
-  TouchableBreath,
-  theme,
-};
+  default as TouchableBreath,
+  TouchableBreathProps,
+} from './components/TouchableBreath';
+export {default as theme} from './utils/Theme';

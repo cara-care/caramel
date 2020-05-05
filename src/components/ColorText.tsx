@@ -51,12 +51,17 @@ export default class ColorText extends Component<IProps, IState> {
           if (regExpMatch.index !== undefined) {
             partedText.push({
               color: undefined,
-              value: regExpMatch.input ? regExpMatch.input.substring(regExpMatch.index, -1) : '',
+              value: regExpMatch.input
+                ? regExpMatch.input.substring(regExpMatch.index, -1)
+                : '',
             });
           }
           partedText.push({
             formatting: formatType,
-            pressEvent: !!pressEvent && pressEvent.length > eventIndex ? pressEvent[eventIndex] : undefined,
+            pressEvent:
+              !!pressEvent && pressEvent.length > eventIndex
+                ? pressEvent[eventIndex]
+                : undefined,
             color: undefined,
             value: regExpMatch[1],
           });
@@ -75,7 +80,6 @@ export default class ColorText extends Component<IProps, IState> {
       structuredText.splice(index + extraIndex, 1, ...partedText);
       extraIndex += partedText.length - 1;
     });
-
   }
 
   loopForRegExp(text: string, array: Structured[], regExp: RegExp) {
@@ -94,9 +98,7 @@ export default class ColorText extends Component<IProps, IState> {
           value: regExpMatch[2],
         });
 
-        text = text.substring(
-          (regExpMatch.index || 0) + regExpMatch[0].length,
-        );
+        text = text.substring((regExpMatch.index || 0) + regExpMatch[0].length);
       } else {
         array.push({value: text});
         text = '';
@@ -176,7 +178,13 @@ export default class ColorText extends Component<IProps, IState> {
   getStructuredLink(structuredText: Structured[]) {
     const loopText = structuredText.concat([]);
     const colorRegExp = new RegExp('\\[link](.*?)\\[\\/link]');
-    this.getFormatted(loopText, structuredText, colorRegExp, undefined, this.props.linkEvents);
+    this.getFormatted(
+      loopText,
+      structuredText,
+      colorRegExp,
+      undefined,
+      this.props.linkEvents,
+    );
     return structuredText;
   }
 
@@ -212,7 +220,9 @@ export default class ColorText extends Component<IProps, IState> {
                     textDecorationLine:
                       data.formatting === FormatType.UNDERLINE
                         ? 'underline'
-                        : (data.formatting === FormatType.STRIKETHROUGH ? 'line-through' : 'none'),
+                        : data.formatting === FormatType.STRIKETHROUGH
+                        ? 'line-through'
+                        : 'none',
                   },
                   styles.regularText,
                   !data.color
@@ -230,7 +240,7 @@ export default class ColorText extends Component<IProps, IState> {
                   data.formatting === FormatType.STRIKETHROUGH
                     ? this.props.strikethroughTextStyle
                     : undefined,
-                    !!data.pressEvent ? this.props.linkTextStyle : undefined,
+                  !!data.pressEvent ? this.props.linkTextStyle : undefined,
                 ]}>
                 {data.value}
               </Text>

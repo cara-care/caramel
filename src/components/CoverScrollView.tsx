@@ -18,28 +18,35 @@ interface IProps {
   image: ImageSourcePropType;
 }
 
-interface IState {
-}
+interface IState {}
 
 class CoverScrollView extends React.Component<IProps, IState> {
-
   private y = new Animated.Value(0);
-  private onScroll = (contentOffset: {
-    x: Animated.Value;
-    y: Animated.Value;
-  }) => Animated.event([{nativeEvent: {contentOffset}}], {useNativeDriver: false});
+  private onScroll = (contentOffset: {x: Animated.Value; y: Animated.Value}) =>
+    Animated.event([{nativeEvent: {contentOffset}}], {useNativeDriver: false});
 
   render = () => {
-    const {style, scrollViewStyle, imageStyle, imageContainerStyle, image} = this.props;
+    const {
+      style,
+      scrollViewStyle,
+      imageStyle,
+      imageContainerStyle,
+      image,
+    } = this.props;
 
     return (
       <View style={style}>
-        <CoverImage image={image} {...{y: this.y}} imageContainerStyle={imageContainerStyle} imageStyle={imageStyle} />
+        <CoverImage
+          image={image}
+          {...{y: this.y}}
+          imageContainerStyle={imageContainerStyle}
+          imageStyle={imageStyle}
+        />
         <Animated.ScrollView
-            showsVerticalScrollIndicator={false}
-            style={[styles.scrollView, scrollViewStyle]}
-            scrollEventThrottle={16}
-            onScroll={this.onScroll({y: this.y, x: new Animated.Value(0)})}>
+          showsVerticalScrollIndicator={false}
+          style={[styles.scrollView, scrollViewStyle]}
+          scrollEventThrottle={16}
+          onScroll={this.onScroll({y: this.y, x: new Animated.Value(0)})}>
           <View style={{height: MAX_HEADER_HEIGHT}} />
           {this.props.children}
         </Animated.ScrollView>

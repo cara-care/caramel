@@ -14,3 +14,6 @@ package-lock.json
 # outputs
 dist/
 build/
+
+# eslint cache
+.eslintcache
