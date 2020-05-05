@@ -29,7 +29,7 @@
     "build": "tsc -d",
     "prepublishOnly": "npm run build",
     "format": "prettier --config .prettierrc.js --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "eslint": "eslint \"src/**/*.tsx\"",
+    "lint": "eslint \"src/**/*.tsx\" --cache",
     "type-check": "tsc --noEmit",
     "test": "jest"
   },
