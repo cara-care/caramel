@@ -10,7 +10,6 @@ import {
 import {SafeAreaView} from 'react-navigation';
 
 interface Props {
-  children: React.ReactNode;
   bgColor?: string;
   style?: ViewStyle | RegisteredStyle<ViewStyle>;
   androidStatusBarMargin?: boolean;
