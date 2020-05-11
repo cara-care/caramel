@@ -19,6 +19,7 @@ interface IProps {
   rightIconStyle?: ImageStyle;
   textStyle?: TextStyle;
   style?: ViewStyle;
+  touchableStyle?: ViewStyle;
   text: string;
   onPress?: () => void;
 }
@@ -34,12 +35,13 @@ class IconButton extends React.Component<IProps, IState> {
       rightIconStyle,
       textStyle,
       text,
+      touchableStyle,
       style,
       onPress,
     } = this.props;
     return (
-      <TouchableOpacity onPress={onPress} style={style}>
-        <View style={styles.buttonContainer}>
+      <TouchableOpacity onPress={onPress} style={touchableStyle}>
+        <View style={[styles.buttonContainer, style]}>
           {leftIcon ? (
             <Image
               style={[styles.buttonImage, leftIconStyle]}
