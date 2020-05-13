@@ -22,6 +22,7 @@ enum FormatType {
   ITALIC,
   UNDERLINE,
   STRIKETHROUGH,
+  NEW_LINE,
 }
 
 interface Structured {
@@ -131,7 +132,7 @@ export default class ColorText extends Component<IProps, IState> {
       color?: string;
       value: string;
     }[] = [];
-    const colorRegExp = new RegExp('\\[color:(.*?)](.*?)\\[\\/color]');
+    const colorRegExp = new RegExp('\\[color=(.*?)](.*?)\\[\\/color]');
     this.loopForRegExp(colorText, structuredText, colorRegExp);
     return structuredText;
   }
@@ -188,6 +189,17 @@ export default class ColorText extends Component<IProps, IState> {
     return structuredText;
   }
 
+  getStructuredNewLine(structuredText: Structured[]) {
+    const loopText = structuredText.concat([]);
+    const newLineRegExp = new RegExp('\\[br](.*?)');
+    this.getFormatted(
+      loopText,
+      structuredText,
+      newLineRegExp,
+      FormatType.NEW_LINE,
+    );
+  }
+
   render() {
     let colorText = this.props.children ? this.props.children.toString() : '';
 
@@ -197,12 +209,14 @@ export default class ColorText extends Component<IProps, IState> {
     this.getStructuredUnderline(structuredText);
     this.getStructuredStrikethrough(structuredText);
     this.getStructuredLink(structuredText);
+    this.getStructuredNewLine(structuredText);
 
     return (
       <View style={this.props.style}>
         <Text style={this.props.textStyle}>
           {!!structuredText.length &&
             structuredText.map((data, index) => (
+              <>
               <Text
                 key={'colored' + index}
                 onPress={data.pressEvent}
@@ -244,6 +258,10 @@ export default class ColorText extends Component<IProps, IState> {
                 ]}>
                 {data.value}
               </Text>
+              {data.formatting === FormatType.NEW_LINE &&
+                <Text>{'\n'}</Text>
+              }
+              </>
             ))}
         </Text>
       </View>
