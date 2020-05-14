@@ -258,7 +258,7 @@ export default class ColorText extends Component<IProps, IState> {
                   ]}>
                   {data.value}
                 </Text>
-                {data.formatting === FormatType.NEW_LINE && <Text>{'\n'}</Text>}
+                {data.formatting === FormatType.NEW_LINE && <Text key={'colored' + index + 'newline'}>{'\n'}</Text>}
               </>
             ))}
         </Text>
