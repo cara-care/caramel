@@ -216,46 +216,47 @@ export default class ColorText extends Component<IProps, IState> {
         <Text style={this.props.textStyle}>
           {!!structuredText.length &&
             structuredText.map((data, index) => (
-              <Text
-                key={'colored' + index}
-                onPress={data.pressEvent}
-                style={[
-                  {
-                    color: !data.color
-                      ? this.props.regularColor || 'black'
-                      : data.color,
-                    fontWeight:
-                      data.formatting === FormatType.BOLD ? 'bold' : 'normal',
-                    fontStyle:
-                      data.formatting === FormatType.ITALIC
-                        ? 'italic'
-                        : 'normal',
-                    textDecorationLine:
-                      data.formatting === FormatType.UNDERLINE
-                        ? 'underline'
-                        : data.formatting === FormatType.STRIKETHROUGH
-                        ? 'line-through'
-                        : 'none',
-                  },
-                  styles.regularText,
-                  !data.color
-                    ? this.props.regularTextStyle
-                    : this.props.coloredTextStyle,
-                  data.formatting === FormatType.BOLD
-                    ? this.props.boldTextStyle
-                    : undefined,
-                  data.formatting === FormatType.ITALIC
-                    ? this.props.italicTextStyle
-                    : undefined,
-                  data.formatting === FormatType.UNDERLINE
-                    ? this.props.underlineTextStyle
-                    : undefined,
-                  data.formatting === FormatType.STRIKETHROUGH
-                    ? this.props.strikethroughTextStyle
-                    : undefined,
-                  !!data.pressEvent ? this.props.linkTextStyle : undefined,
-                ]}>
-                {data.value}
+              <Text key={'colored' + index}>
+                <Text
+                  onPress={data.pressEvent}
+                  style={[
+                    {
+                      color: !data.color
+                        ? this.props.regularColor || 'black'
+                        : data.color,
+                      fontWeight:
+                        data.formatting === FormatType.BOLD ? 'bold' : 'normal',
+                      fontStyle:
+                        data.formatting === FormatType.ITALIC
+                          ? 'italic'
+                          : 'normal',
+                      textDecorationLine:
+                        data.formatting === FormatType.UNDERLINE
+                          ? 'underline'
+                          : data.formatting === FormatType.STRIKETHROUGH
+                          ? 'line-through'
+                          : 'none',
+                    },
+                    styles.regularText,
+                    !data.color
+                      ? this.props.regularTextStyle
+                      : this.props.coloredTextStyle,
+                    data.formatting === FormatType.BOLD
+                      ? this.props.boldTextStyle
+                      : undefined,
+                    data.formatting === FormatType.ITALIC
+                      ? this.props.italicTextStyle
+                      : undefined,
+                    data.formatting === FormatType.UNDERLINE
+                      ? this.props.underlineTextStyle
+                      : undefined,
+                    data.formatting === FormatType.STRIKETHROUGH
+                      ? this.props.strikethroughTextStyle
+                      : undefined,
+                    data.pressEvent ? this.props.linkTextStyle : undefined,
+                  ]}>
+                  {data.value}
+                </Text>
                 {data.formatting === FormatType.NEW_LINE && <Text>{'\n'}</Text>}
               </Text>
             ))}
