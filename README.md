@@ -17,6 +17,37 @@ npm install @cara-care/caramel --save
 ## Documentation
 You can find a list of components and their documentations at https://caramel.cara.care.
 
+## Start using
+```
+import React from 'react';
+import {Container, Text, Accordion} from '@cara-care/caramel';
+
+const App: () => React$Node = () => {
+  return (
+    <Container>
+      <Text type="header1">Welcome to caramel</Text>
+      <Accordion
+        list={[
+          {
+            image: require('./caramel.png'),
+            name: 'Caramel 1',
+            description: 'Lorem ipsum dolor sit amet.',
+          },
+          {
+            image: require('./caramel.png'),
+            name: 'Caramel 2',
+            description: 'Lorem ipsum dolor sit amet.',
+          },
+        ]}
+        animate
+      />
+    </Container>
+  );
+};
+
+export default App;
+```
+
 ### Attribution
 * Slider component based on [jeanregisser's react-native-slider](https://github.com/jeanregisser/react-native-slider).
 * Android version of the Bottom Sheet based on [nysamnang's react-native-raw-bottom-sheet](https://github.com/nysamnang/react-native-raw-bottom-sheet).
