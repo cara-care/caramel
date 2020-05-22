@@ -48,7 +48,7 @@ const App: () => React$Node = () => {
 export default App;
 ```
 
-## Caramel for web
+## Caramel for web
 If you'd like to use caramel components for your web applications, you can do this using [react-native-web](https://github.com/necolas/react-native-web). We have prepared an example project for you [here](https://github.com/cara-care/caramel-web). And here it is in action: https://caramel-web.cara.care/.
 
 ## Attribution
