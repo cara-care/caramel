@@ -34,66 +34,11 @@ interface IProps {
 }
 
 class BottomActionSheet extends Component<IProps, any> {
-  private ANDROID_SHEET_BUTTON_HEIGHT = 75;
   static defaultProps: IProps;
-  private bottomSheetAndroid?: BottomSheetAndroid;
-
-  private ios: IOSProps = new IOSProps();
-
-  constructor(props: IProps) {
-    super(props);
-
-    this.ios.destructiveButtonIndex = props.ios!.destructiveButtonIndex;
-    this.ios.cancelButtonIndex = props.cancelButtonIndex;
-  }
-
-  openSheet = () => {
-    const {options, onPressWithIndex} = this.props;
-
-    if (Platform.OS === 'ios') {
-      ActionSheetIOS.showActionSheetWithOptions(
-        {
-          options: options,
-          destructiveButtonIndex: this.ios.destructiveButtonIndex,
-          cancelButtonIndex: this.ios.cancelButtonIndex,
-        },
-        onPressWithIndex!,
-      );
-    } else if (this.bottomSheetAndroid) {
-      this.bottomSheetAndroid.open();
-    }
-  };
-
-  closeSheet = () => {
-    if (this.bottomSheetAndroid && Platform.OS !== 'ios')
-      this.bottomSheetAndroid.close();
-  };
 
   render() {
-    const {android, onPressWithIndex, options, cancelButtonIndex} = this.props;
     return (
-      <View>
-        {Platform.OS !== 'ios' && (
-          <BottomSheetAndroid
-            ref={ref => {
-              if (ref !== null) this.bottomSheetAndroid = ref;
-            }}
-            options={options}
-            onPressWithIndex={onPressWithIndex}
-            minClosingHeight={android!.minClosingHeight}
-            duration={android!.duration}
-            onClose={android!.onClose}
-            closeOnDragDown={android!.closeOnDragDown}
-            closeOnPressMask={android!.closeOnPressMask}
-            closeOnPressBack={android!.closeOnPressBack}
-            closeOnButtonPress={android!.closeOnButtonPress}
-            animationType={android!.animationType}
-            customStyles={android!.customStyles}
-            cancelButtonIndex={cancelButtonIndex}
-            buttonHeight={this.ANDROID_SHEET_BUTTON_HEIGHT}
-          />
-        )}
-      </View>
+      <View />
     );
   }
 }
