@@ -15,10 +15,10 @@ npm install @cara-care/caramel --save
 * [react-navigation](https://github.com/react-navigation/react-navigation)
 
 ## Documentation
-You can find a list of components and their documentations at https://caramel.cara.care.
+You can find a list of components and their documentations at https://caramel.cara.care/.
 
 ## Start using
-```
+```ts
 import React from 'react';
 import {Container, Text, Accordion} from '@cara-care/caramel';
 
