@@ -17,13 +17,13 @@
   background-image: linear-gradient(180deg, #09B7AD, #028E86);
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1400px) {
   .imageTableContainer {
     flex-direction: column;
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1400px) {
   .imageTableContainer {
     flex-direction: row;
   }
