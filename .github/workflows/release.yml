@@ -12,7 +12,8 @@ jobs:
     - name: Setup node
       uses: actions/setup-node@v1
     - name: Dump GitHub context
-      - run: npm install
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: |
+        npm install
+        npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
