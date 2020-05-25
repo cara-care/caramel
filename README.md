@@ -18,7 +18,7 @@ npm install @cara-care/caramel --save
 You can find a list of components and their documentations at https://caramel.cara.care/.
 
 ## Start using
-```
+```ts
 import React from 'react';
 import {Container, Text, Accordion} from '@cara-care/caramel';
 
