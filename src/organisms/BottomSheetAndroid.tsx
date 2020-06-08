@@ -17,7 +17,8 @@ const ORIENTATIONS: (
   | 'portrait-upside-down'
   | 'landscape'
   | 'landscape-left'
-  | 'landscape-right')[] = [
+  | 'landscape-right'
+)[] = [
   'portrait',
   'portrait-upside-down',
   'landscape',
