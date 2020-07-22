@@ -14,6 +14,7 @@ interface IProps {
   thumbStyle?: StyleProp<any>;
   thumbTextStyle?: StyleProp<any>;
   trackStyle?: StyleProp<any>;
+  tooltipContainerStyle?: StyleProp<any>;
   tooltipStyle?: StyleProp<any>;
   leftTextStyle?: StyleProp<any>;
   rightTextStyle?: StyleProp<any>;
@@ -33,6 +34,7 @@ interface IProps {
   leftText?: string;
   rightText?: string;
   showTooltipOnSlide?: boolean;
+  showTooltipAlways?: boolean;
   step?: number;
   tintColor?: string;
 }
@@ -49,6 +51,7 @@ export default class Slider extends PureComponent<IProps, IState> {
     step: 1,
     thumbWidth: 50,
     showTooltipOnSlide: true,
+    showTooltipAlways: false,
   };
 
   state = {
@@ -92,6 +95,7 @@ export default class Slider extends PureComponent<IProps, IState> {
       leftText,
       rightText,
       showTooltipOnSlide,
+      showTooltipAlways,
       leftTextStyle,
       rightTextStyle,
       containerStyle,
@@ -126,6 +130,7 @@ export default class Slider extends PureComponent<IProps, IState> {
       thumbStyle,
       trackStyle,
       thumbTextStyle,
+      tooltipContainerStyle,
       tooltipStyle,
       onValueChange,
       onSlidingStart,
@@ -193,8 +198,8 @@ export default class Slider extends PureComponent<IProps, IState> {
             <Text type="small" style={[styles.thumbText, thumbTextStyle]}>
               {this.state.value + minimum}
             </Text>
-            {showTooltipOnSlide && this.state.showTooltip && (
-              <View style={styles.tooltip}>
+            {showTooltipAlways || (showTooltipOnSlide && this.state.showTooltip) && (
+              <View style={[styles.tooltip, tooltipContainerStyle]}>
                 <Text type="header4" style={[styles.tooltipText, tooltipStyle]}>
                   {this.state.value + minimum}
                 </Text>
