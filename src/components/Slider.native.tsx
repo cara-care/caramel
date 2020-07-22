@@ -26,7 +26,7 @@ interface IProps {
   tooltipText?: string;
   minimum: number;
   maximum: number;
-  onValueChange: (value: number) => void;
+  onValueChange?: (value: number) => void;
   onSlidingStart?: () => void;
   onSlidingComplete?: () => void;
   thumbWidth?: number;
@@ -81,7 +81,7 @@ export default class Slider extends React.Component<IProps, IState> {
       value = maximum;
     }
 
-    if (!isNaN(value)) {
+    if (!isNaN(value) && !!onValueChange) {
       this.setState({value}, () => {
         onValueChange(value);
       });
@@ -170,7 +170,9 @@ export default class Slider extends React.Component<IProps, IState> {
               trackStyle={[styles.trackStyle, trackStyle]}
               onValueChange={(value: number) => {
                 this.setState({value: value});
-                onValueChange(value + minimum);
+                if (!!onValueChange) {
+                  onValueChange(value + minimum);
+                }
               }}
               onSlidingStart={() => {
                 this.setState({showTooltip: true});

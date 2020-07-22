@@ -17,7 +17,7 @@ interface IProps {
   tooltipText?: string;
   minimum: number;
   maximum: number;
-  onValueChange: (value: number) => void;
+  onValueChange?: (value: number) => void;
   onSlidingStart?: () => void;
   onSlidingComplete?: () => void;
   thumbWidth?: number;
