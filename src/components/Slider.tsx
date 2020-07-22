@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import {View, StyleProp} from 'react-native';
 
 interface IProps {
@@ -14,6 +14,7 @@ interface IProps {
   topTextsContainerStyle?: StyleProp<any>;
   sliderStyle?: StyleProp<any>;
   sliderTouchableStyle?: StyleProp<any>;
+  tooltipText?: string;
   minimum: number;
   maximum: number;
   onValueChange: (value: number) => void;
@@ -37,7 +38,7 @@ interface IState {
   showTooltip: boolean;
 }
 
-export default class Slider extends PureComponent<IProps, IState> {
+export default class Slider extends React.Component<IProps, IState> {
   render() {
     return <View />;
   }

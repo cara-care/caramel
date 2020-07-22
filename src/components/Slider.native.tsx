@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import {
   View,
   StyleProp,
@@ -23,6 +23,7 @@ interface IProps {
   topTextsContainerStyle?: StyleProp<any>;
   sliderStyle?: StyleProp<any>;
   sliderTouchableStyle?: StyleProp<any>;
+  tooltipText?: string;
   minimum: number;
   maximum: number;
   onValueChange: (value: number) => void;
@@ -46,7 +47,7 @@ interface IState {
   showTooltip: boolean;
 }
 
-export default class Slider extends PureComponent<IProps, IState> {
+export default class Slider extends React.Component<IProps, IState> {
   static defaultProps = {
     step: 1,
     thumbWidth: 50,
@@ -105,9 +106,10 @@ export default class Slider extends PureComponent<IProps, IState> {
       sliderTouchableStyle,
     } = this.props;
     const division = maximum - minimum;
+
     const textLeftCalculation = thumbWidth
       ? ((this.state.componentWidth - thumbWidth) / division) *
-          this.state.value +
+          (this.props.value || this.state.value) +
         thumbWidth / 2 -
         this.state.textWidth / 2
       : 0;
@@ -137,6 +139,7 @@ export default class Slider extends PureComponent<IProps, IState> {
       onSlidingComplete,
       step,
       tintColor,
+      tooltipText,
     } = this.props;
     return (
       <View style={containerStyle}>
@@ -189,12 +192,7 @@ export default class Slider extends PureComponent<IProps, IState> {
               let {width} = event.nativeEvent.layout;
               this.setState({textWidth: width});
             }}
-            style={[
-              styles.thumbTextContainer,
-              {
-                left: textLeftCalculation,
-              },
-            ]}>
+            style={[styles.thumbTextContainer, {left: textLeftCalculation}]}>
             <Text type="small" style={[styles.thumbText, thumbTextStyle]}>
               {this.state.value + minimum}
             </Text>
@@ -202,7 +200,7 @@ export default class Slider extends PureComponent<IProps, IState> {
               (showTooltipOnSlide && this.state.showTooltip)) && (
               <View style={[styles.tooltip, tooltipContainerStyle]}>
                 <Text type="header4" style={[styles.tooltipText, tooltipStyle]}>
-                  {this.state.value + minimum}
+                  {tooltipText || this.state.value + minimum}
                 </Text>
               </View>
             )}
