@@ -198,7 +198,8 @@ export default class Slider extends PureComponent<IProps, IState> {
             <Text type="small" style={[styles.thumbText, thumbTextStyle]}>
               {this.state.value + minimum}
             </Text>
-            {showTooltipAlways || (showTooltipOnSlide && this.state.showTooltip) && (
+            {(showTooltipAlways ||
+              (showTooltipOnSlide && this.state.showTooltip)) && (
               <View style={[styles.tooltip, tooltipContainerStyle]}>
                 <Text type="header4" style={[styles.tooltipText, tooltipStyle]}>
                   {this.state.value + minimum}
