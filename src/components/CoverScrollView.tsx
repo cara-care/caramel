@@ -1,9 +1,17 @@
-import React, {Component} from 'react';
-import {View} from 'react-native';
+import React from 'react';
+import {View, ViewStyle, ImageSourcePropType, ImageStyle} from 'react-native';
 
-interface Props {}
+interface IProps {
+  style?: ViewStyle;
+  scrollViewStyle?: ViewStyle;
+  imageStyle?: ImageStyle;
+  imageContainerStyle?: ViewStyle;
+  image: ImageSourcePropType;
+}
 
-class CoverScrollView extends Component<Props> {
+interface IState {}
+
+class CoverScrollView extends React.Component<IProps, IState> {
   render() {
     return <View />;
   }
