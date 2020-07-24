@@ -1,8 +1,8 @@
+export {default as ColorText} from 'react-native-styled-markup';
 export {default as Accordion} from './components/Accordion';
 export {default as AccordionRow} from './organisms/AccordionRow';
 export {default as AnimatedProgressBar} from './components/AnimatedProgressBar';
 export {default as BottomActionSheet} from './components/BottomActionSheet';
-export {default as ColorText} from './components/ColorText';
 export {default as Container} from './components/Container';
 export {default as CoverScrollView} from './components/CoverScrollView';
 export {default as IconButton} from './components/IconButton';
