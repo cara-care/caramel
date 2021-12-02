@@ -7,7 +7,7 @@ import {
   ViewStyle,
   RegisteredStyle,
 } from 'react-native';
-import {SafeAreaView} from 'react-navigation';
+import SafeAreaView from 'react-native-safe-area-view';
 
 interface Props {
   bgColor?: string;
