@@ -29,6 +29,8 @@ const theme = {
     sunFlowerYellow: '#FFD13E',
     carrotRed: '#FA5544',
     raspberryRed: '#DD206A',
+    white: '#fff',
+    black: '#000',
   },
   typography: {
     color: '#a9aebe',
