@@ -5480,11 +5480,6 @@ react-native-slider@^0.11.0:
   dependencies:
     prop-types "^15.5.6"
 
-react-native-styled-markup@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/react-native-styled-markup/-/react-native-styled-markup-0.9.1.tgz#ac3a692c47918ba7d693b8902ae848fffefb7a95"
-  integrity sha512-vjqzHDTmGgmXwRYMVnL1L6aEJoYrtEM7usRTCEudglmbJL5kO+F4Oy70HJo1GMbd4qweegIgsiA82E4IhCy2JA==
-
 react-native@^0.62.2:
   version "0.62.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.62.2.tgz#d831e11a3178705449142df19a70ac2ca16bad10"

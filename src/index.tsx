@@ -1,4 +1,4 @@
-export {default as ColorText} from 'react-native-styled-markup';
+export {default as ColorText} from './components/ColorText';
 export {default as Accordion} from './components/Accordion';
 export {default as AccordionRow} from './organisms/AccordionRow';
 export {default as AnimatedProgressBar} from './components/AnimatedProgressBar';
