@@ -1,7 +1,7 @@
 {
   "name": "@cara-care/caramel",
   "title": "Caramel",
-  "version": "0.6.12",
+  "version": "0.6.13",
   "description": "Cross-platform UI component library for React Native.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -36,8 +36,7 @@
   "readmeFilename": "README.md",
   "dependencies": {
     "react-native-gesture-handler": "^1.6.0",
-    "react-native-slider": "^0.11.0",
-    "react-native-styled-markup": "^0.9.1"
+    "react-native-slider": "^0.11.0"
   },
   "peerDependencies": {
     "react": "^16.8.6",
