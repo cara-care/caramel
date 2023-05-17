@@ -7,7 +7,7 @@ import {
   ViewStyle,
   RegisteredStyle,
 } from 'react-native';
-import SafeAreaView from 'react-native-safe-area-view';
+import {Edge, SafeAreaView} from 'react-native-safe-area-context';
 
 interface Props {
   bgColor?: string;
@@ -36,19 +36,20 @@ class Container extends Component<Props> {
       computedStyles.push(styles.androidStatusBarMargin);
     }
 
+    let edges: Edge[] = [];
+    if (!iosStatusBarColor) edges.push('top');
+    if (this.props.bottomSafeArea) edges.push('bottom');
+
     return (
       <>
         {iosStatusBarColor && (
           <SafeAreaView
-            forceInset={{top: 'always', bottom: 'never'}}
+            edges={['top']}
             style={{flex: 0, backgroundColor: iosStatusBarColor}}
           />
         )}
         <SafeAreaView
-          forceInset={{
-            top: iosStatusBarColor ? 'never' : 'always',
-            bottom: this.props.bottomSafeArea ? 'always' : 'never',
-          }}
+          edges={edges}
           style={[styles.root, {backgroundColor: bgColor}]}>
           <View style={computedStyles}>{children}</View>
         </SafeAreaView>

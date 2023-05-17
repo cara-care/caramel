@@ -11,9 +11,6 @@ or with `npm`
 npm install @cara-care/caramel --save
 ```
 
-## Peer Dependencies
-* [react-navigation](https://github.com/react-navigation/react-navigation)
-
 ## Documentation
 You can find a list of components and their documentations at https://caramel.cara.care/.
 
