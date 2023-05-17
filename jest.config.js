@@ -4,5 +4,4 @@ module.exports = {
   modulePathIgnorePatterns: [
     '<rootDir>/node_modules/react-native/Libraries/react-native/',
   ],
-  transformIgnorePatterns: ['node_modules/@react-navigation/.*'],
 };
