@@ -9,20 +9,21 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 
-interface IProps extends React.PropsWithChildren<{
-  textStyle?: TextStyle;
-  regularTextStyle?: TextStyle;
-  coloredTextStyle?: TextStyle;
-  boldTextStyle?: TextStyle;
-  italicTextStyle?: TextStyle;
-  underlineTextStyle?: TextStyle;
-  strikethroughTextStyle?: TextStyle;
-  linkTextStyle?: TextStyle;
-  style?: ViewStyle;
-  regularColor?: string;
-  linkEvents?: [() => void];
-  imageSources?: ImageSourcePropType[];
-}> {}
+interface IProps
+  extends React.PropsWithChildren<{
+    textStyle?: TextStyle;
+    regularTextStyle?: TextStyle;
+    coloredTextStyle?: TextStyle;
+    boldTextStyle?: TextStyle;
+    italicTextStyle?: TextStyle;
+    underlineTextStyle?: TextStyle;
+    strikethroughTextStyle?: TextStyle;
+    linkTextStyle?: TextStyle;
+    style?: ViewStyle;
+    regularColor?: string;
+    linkEvents?: [() => void];
+    imageSources?: ImageSourcePropType[];
+  }> {}
 
 interface IState {}
 
