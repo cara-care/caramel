@@ -9,7 +9,7 @@ import {
   ImageSourcePropType,
 } from 'react-native';
 
-interface IProps {
+interface IProps extends React.PropsWithChildren<{
   textStyle?: TextStyle;
   regularTextStyle?: TextStyle;
   coloredTextStyle?: TextStyle;
@@ -22,7 +22,7 @@ interface IProps {
   regularColor?: string;
   linkEvents?: [() => void];
   imageSources?: ImageSourcePropType[];
-}
+}> {}
 
 interface IState {}
 
@@ -282,7 +282,8 @@ export default class ColorText extends Component<IProps, IState> {
   }
 
   render() {
-    let colorText = this.props.children ? this.props.children.toString() : '';
+    let colorText =
+      typeof this.props.children === 'string' ? this.props.children : '';
 
     let structuredText: Structured[] = this.getStructuredColor(colorText);
     this.getStructuredBold(structuredText);
