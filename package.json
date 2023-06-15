@@ -34,9 +34,7 @@
   "license": "MIT",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
-  "dependencies": {
-    "react-native-slider": "^0.11.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.6",
     "react-native": ">=0.60.0 <1.0.x",
