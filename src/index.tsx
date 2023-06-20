@@ -6,7 +6,6 @@ export {default as BottomActionSheet} from './components/BottomActionSheet';
 export {default as Container} from './components/Container';
 export {default as CoverScrollView} from './components/CoverScrollView';
 export {default as IconButton} from './components/IconButton';
-export {default as Text} from './components/Text';
 export {default as ThermoScore} from './components/ThermoScore';
 export {
   default as TouchableBreath,
